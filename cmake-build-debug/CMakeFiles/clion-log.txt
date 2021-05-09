@@ -1,0 +1,8 @@
+/home/artur/clion-2021.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999
+-- IPO is supported
+-- Configuring done
+CMake Error at CMakeLists.txt:39 (add_library):
+  No SOURCES given to target: engine
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

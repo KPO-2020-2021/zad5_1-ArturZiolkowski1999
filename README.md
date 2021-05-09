@@ -40,8 +40,8 @@ This is a boiler plate for C++ projects. What you get:
     └── main.cpp
 ```
 
-Sources go in [src/](src/), header files in [include/](include/), main programs in [app/](app), and
-tests go in [tests/](tests/) (compiled to `unit_tests` by default). 
+Sources go in [src/](src/), header files in [include/](inc/), main programs in [app/](app), and
+tests go in [tests/](tst/) (compiled to `unit_tests` by default). 
 
 If you add a new executable, say `app/hello.cpp`, you only need to add the following two lines to [CMakeLists.txt](CMakeLists.txt): 
 

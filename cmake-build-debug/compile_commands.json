@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/include -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/external/doctest/doctest -g -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/engine.dir/src/example.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/example.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/example.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/include -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/external/doctest/doctest -g -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/main.dir/app/main.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/app/main.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/app/main.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/tests",
+  "command": "/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/include -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/external/doctest/doctest -g -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/unit_tests.dir/main.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/tests/main.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/tests/main.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/tests",
+  "command": "/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/include -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/external/doctest/doctest -g -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/unit_tests.dir/dummy.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/tests/dummy.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/tests/dummy.cpp"
+}
+]
