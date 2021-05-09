@@ -44,7 +44,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/tests/cmake_install.cmake")
+  include("/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/tst/cmake_install.cmake")
+  include("/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/lib/googletest-master/cmake_install.cmake")
+  include("/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/lib/GNUPlot/cmake_install.cmake")
 
 endif()
 

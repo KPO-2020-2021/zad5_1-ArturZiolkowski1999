@@ -8,6 +8,7 @@
 #define ROTATION3D_CUBOID_H
 #include <iostream>
 #include <utility>
+#include <cmath>
 #include <float.h>
 #include "Matrix3x3.h"
 #include "Constants.h"
@@ -19,6 +20,10 @@ private:
 
     Vector<T, 3> vertices[VERTICES_NUMBER];
     T sidesLength[SIDES_NUMBER];
+    Vector<T, 3> centerOfMass;
+    /*! Simple sort algorithm looks the further and the closer vertices, and
+     * return center of mass vector */
+    Vector<T, 3> calculateCenterOfMass();
 public:
     Cuboid();
     Cuboid(Vector<T, 3> *ver);
@@ -35,6 +40,7 @@ public:
     friend std::ostream & operator<<(std::ostream & ost, Cuboid<T1> &cub);
     T getSideLength(unsigned int index);
     void calculateSidesLength();
+    Vector<T, 3> getCenterOfMass();
 };
 
 
@@ -64,7 +70,8 @@ Cuboid<T>::Cuboid(Vector<T, 3> *ver){
             }
         }
     }
-
+    calculateCenterOfMass();
+    calculateSidesLength();
 }
 
 template<typename T>
@@ -247,6 +254,48 @@ template<typename T>
 T Cuboid<T>::getSideLength(unsigned int index) {
     if(index > SIDES_NUMBER) throw std::invalid_argument("index out of range");
     return this->sidesLength[index];
+}
+
+template<typename T>
+Vector<T, 3> Cuboid<T>::calculateCenterOfMass() {
+
+//    Vector <T, 3> verticesToSort[8] = {this->vertices[0], this->vertices[1], this->vertices[2], this->vertices[3],
+//                                       this->vertices[4], this->vertices[5], this->vertices[6], this->vertices[7]};
+//
+//    Vector <T, 3> verticesToGet[8] = {this->vertices[0], this->vertices[1], this->vertices[2], this->vertices[3],
+//                                       this->vertices[4], this->vertices[5], this->vertices[6], this->vertices[7]};
+//    int indexOfSmallest;
+//    Vector<T, 3> smallest = Vector<T, 3>(sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3);
+
+
+//    for(int j = 0; j < VERTICES_NUMBER; j++) {
+//        for (int i = 0; i < VERTICES_NUMBER; i++) {
+//            if ((verticesToGet[i][0] * verticesToGet[i][0] + verticesToGet[i][1] * verticesToGet[i][1]
+//                + verticesToGet[i][2] * verticesToGet[i][2])
+//                < (smallest[0] * smallest[0] + smallest[1] * smallest[1] + smallest[2] * smallest[2])) {
+//                smallest = verticesToGet[i];
+//                indexOfSmallest = i;
+//            }
+//        }
+//
+//        verticesToGet[indexOfSmallest] = Vector<T, 3>(sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3);
+//        verticesToSort[j] = smallest;
+//        smallest = Vector<T, 3>(sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3);
+
+//        std::cout << verticesToSort[7];
+//        std::cout << verticesToSort[1];
+
+        this->centerOfMass = this->vertices[6] - this->vertices[0];
+        this->centerOfMass = this->centerOfMass/2;
+        this->centerOfMass = this->centerOfMass + this->vertices[0];
+
+//    }
+    return this->centerOfMass;
+}
+
+template<typename T>
+Vector<T, 3> Cuboid<T>::getCenterOfMass() {
+    return this->centerOfMass;
 }
 
 

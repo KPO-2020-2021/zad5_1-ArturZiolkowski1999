@@ -4,20 +4,19 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp" "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles/engine.dir/src/Matrix3x3.cpp.o"
+  "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp" "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles/engine.dir/src/Matrix4x4.cpp.o"
   "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/example.cpp" "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles/engine.dir/src/example.cpp.o"
+  "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/main.cpp" "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles/engine.dir/src/main.cpp.o"
+  "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/scene.cpp" "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles/engine.dir/src/scene.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "ENABLE_DOCTEST_IN_LIBRARY"
-  )
-
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../inc"
+  "../lib/GNUPlot"
   "."
-  "../include"
-  "../external/doctest/doctest"
   )
 
 # Targets to which this target links.

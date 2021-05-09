@@ -76,9 +76,35 @@ include CMakeFiles/engine.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/engine.dir/flags.make
 
+CMakeFiles/engine.dir/src/Matrix3x3.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/Matrix3x3.cpp.o: ../src/Matrix3x3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/engine.dir/src/Matrix3x3.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Matrix3x3.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp
+
+CMakeFiles/engine.dir/src/Matrix3x3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Matrix3x3.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp > CMakeFiles/engine.dir/src/Matrix3x3.cpp.i
+
+CMakeFiles/engine.dir/src/Matrix3x3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Matrix3x3.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp -o CMakeFiles/engine.dir/src/Matrix3x3.cpp.s
+
+CMakeFiles/engine.dir/src/Matrix4x4.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/Matrix4x4.cpp.o: ../src/Matrix4x4.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/src/Matrix4x4.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Matrix4x4.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp
+
+CMakeFiles/engine.dir/src/Matrix4x4.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Matrix4x4.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp > CMakeFiles/engine.dir/src/Matrix4x4.cpp.i
+
+CMakeFiles/engine.dir/src/Matrix4x4.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Matrix4x4.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp -o CMakeFiles/engine.dir/src/Matrix4x4.cpp.s
+
 CMakeFiles/engine.dir/src/example.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/src/example.cpp.o: ../src/example.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/engine.dir/src/example.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/src/example.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/example.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/example.cpp
 
 CMakeFiles/engine.dir/src/example.cpp.i: cmake_force
@@ -89,7 +115,37 @@ CMakeFiles/engine.dir/src/example.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/example.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/example.cpp -o CMakeFiles/engine.dir/src/example.cpp.s
 
+CMakeFiles/engine.dir/src/main.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/main.cpp.o: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/main.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/main.cpp
+
+CMakeFiles/engine.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/main.cpp > CMakeFiles/engine.dir/src/main.cpp.i
+
+CMakeFiles/engine.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/main.cpp -o CMakeFiles/engine.dir/src/main.cpp.s
+
+CMakeFiles/engine.dir/src/scene.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/scene.cpp.o: ../src/scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/src/scene.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/scene.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/scene.cpp
+
+CMakeFiles/engine.dir/src/scene.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/scene.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/scene.cpp > CMakeFiles/engine.dir/src/scene.cpp.i
+
+CMakeFiles/engine.dir/src/scene.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/scene.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/scene.cpp -o CMakeFiles/engine.dir/src/scene.cpp.s
+
+engine: CMakeFiles/engine.dir/src/Matrix3x3.cpp.o
+engine: CMakeFiles/engine.dir/src/Matrix4x4.cpp.o
 engine: CMakeFiles/engine.dir/src/example.cpp.o
+engine: CMakeFiles/engine.dir/src/main.cpp.o
+engine: CMakeFiles/engine.dir/src/scene.cpp.o
 engine: CMakeFiles/engine.dir/build.make
 
 .PHONY : engine

@@ -429,3 +429,23 @@ TEST (Cuboid, Indexing) {
 
 EXPECT_EQ(Adam[0], result);
 }
+
+TEST (Cuboid, calculateCenterOfMass) {
+
+    Vector<double, 3> Ver0 = Vector<double, 3>(-1,-1,0);
+    Vector<double, 3> Ver1 = Vector<double, 3>(1,-1,0);
+    Vector<double, 3> Ver2 = Vector<double, 3>(1,-1,2);
+    Vector<double, 3> Ver3 = Vector<double, 3>(-1,-1,2);
+
+    Vector<double, 3> Ver4 = Vector<double, 3>(-1,1,0);
+    Vector<double, 3> Ver5 = Vector<double, 3>(1,1,0);
+    Vector<double, 3> Ver6 = Vector<double, 3>(1,1,2);
+    Vector<double, 3> Ver7 = Vector<double, 3>(-1,1,2);
+
+    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    Cuboid<double> Adam = Cuboid<double>(vertices);
+
+    Vector<double, 3> result = Vector<double, 3>(0,0,1);
+
+    EXPECT_EQ(Adam.getCenterOfMass(), result);
+}
