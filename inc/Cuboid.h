@@ -100,6 +100,7 @@ void Cuboid<T>::translationByVector(Vector<T, 3> &Vec){
     this->vertices[5] = Vec + (this->vertices[5]);
     this->vertices[6] = Vec + (this->vertices[6]);
     this->vertices[7] = Vec + (this->vertices[7]);
+    calculateCenterOfMass();
 }
 
 template<typename  T>
@@ -113,6 +114,7 @@ void Cuboid<T>::rotationByMatrix(const Matrix3x3 &rotMatrix){
     this->vertices[5] = rotMatrix * (this->vertices[5]);
     this->vertices[6] = rotMatrix * (this->vertices[6]);
     this->vertices[7] = rotMatrix * (this->vertices[7]);
+    calculateCenterOfMass();
 }
 
 template<typename  T>
@@ -135,7 +137,7 @@ const Vector<T, 3> &Cuboid<T>::operator[](int index) const {
         case 7:
             return this->vertices[7];
         default:
-            throw std::invalid_argument("");
+            throw std::invalid_argument("index out of range");
     }
 }
 
@@ -159,7 +161,7 @@ Vector<T, 3> &Cuboid<T>::operator[](int index) {
         case 7:
             return this->vertices[7];
         default:
-            throw std::invalid_argument("");
+            throw std::invalid_argument("index out of range");
     }
 }
 
@@ -259,37 +261,10 @@ T Cuboid<T>::getSideLength(unsigned int index) {
 template<typename T>
 Vector<T, 3> Cuboid<T>::calculateCenterOfMass() {
 
-//    Vector <T, 3> verticesToSort[8] = {this->vertices[0], this->vertices[1], this->vertices[2], this->vertices[3],
-//                                       this->vertices[4], this->vertices[5], this->vertices[6], this->vertices[7]};
-//
-//    Vector <T, 3> verticesToGet[8] = {this->vertices[0], this->vertices[1], this->vertices[2], this->vertices[3],
-//                                       this->vertices[4], this->vertices[5], this->vertices[6], this->vertices[7]};
-//    int indexOfSmallest;
-//    Vector<T, 3> smallest = Vector<T, 3>(sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3);
-
-
-//    for(int j = 0; j < VERTICES_NUMBER; j++) {
-//        for (int i = 0; i < VERTICES_NUMBER; i++) {
-//            if ((verticesToGet[i][0] * verticesToGet[i][0] + verticesToGet[i][1] * verticesToGet[i][1]
-//                + verticesToGet[i][2] * verticesToGet[i][2])
-//                < (smallest[0] * smallest[0] + smallest[1] * smallest[1] + smallest[2] * smallest[2])) {
-//                smallest = verticesToGet[i];
-//                indexOfSmallest = i;
-//            }
-//        }
-//
-//        verticesToGet[indexOfSmallest] = Vector<T, 3>(sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3);
-//        verticesToSort[j] = smallest;
-//        smallest = Vector<T, 3>(sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3, sqrt(DBL_MAX)/3);
-
-//        std::cout << verticesToSort[7];
-//        std::cout << verticesToSort[1];
-
         this->centerOfMass = this->vertices[6] - this->vertices[0];
         this->centerOfMass = this->centerOfMass/2;
         this->centerOfMass = this->centerOfMass + this->vertices[0];
 
-//    }
     return this->centerOfMass;
 }
 

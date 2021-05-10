@@ -16,6 +16,11 @@ scene::scene() {
     this->XRange[1] = 0;
     this->YRange[0] = 0;
     this->YRange[1] = 0;
+    this->drone1FileName[0] = "../data/drone1_rotor0.txt";
+    this->drone1FileName[1] = "../data/drone1_rotor1.txt";
+    this->drone1FileName[2] = "../data/drone1_rotor2.txt";
+    this->drone1FileName[3] = "../data/drone1_rotor3.txt";
+    this->drone1FileName[4] = "../data/drone1_deck.txt";
 }
 
 scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
@@ -24,6 +29,12 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
     this->fileName[2] = "../data/data2.txt";
     this->fileName[3] = "../data/data3.txt";
     this->fileName[4] = "../data/data4.txt";
+
+    this->drone1FileName[0] = "../data/drone1_rotor0.txt";
+    this->drone1FileName[1] = "../data/drone1_rotor1.txt";
+    this->drone1FileName[2] = "../data/drone1_rotor2.txt";
+    this->drone1FileName[3] = "../data/drone1_rotor3.txt";
+    this->drone1FileName[4] = "../data/drone1_deck.txt";
 
     this->XRange[0] = _XRange[0];
     this->XRange[1] = _XRange[1];
@@ -34,26 +45,19 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
 
 
     GNU.UstawRotacjeXZ(60,30);
-    GNU.DodajNazwePliku(this->fileName[0].c_str())
-            .ZmienSposobRys(PzG::SR_Ciagly)
-            .ZmienSzerokosc(1)
-            .ZmienKolor(1);
-    GNU.DodajNazwePliku(this->fileName[1].c_str())
-            .ZmienSposobRys(PzG::SR_Ciagly)
-            .ZmienSzerokosc(1)
-            .ZmienKolor(2);
-    GNU.DodajNazwePliku(this->fileName[2].c_str())
-            .ZmienSposobRys(PzG::SR_Ciagly)
-            .ZmienSzerokosc(1)
-            .ZmienKolor(3);
-    GNU.DodajNazwePliku(this->fileName[3].c_str())
-            .ZmienSposobRys(PzG::SR_Ciagly)
-            .ZmienSzerokosc(1)
-            .ZmienKolor(4);
-    GNU.DodajNazwePliku(this->fileName[4].c_str())
-            .ZmienSposobRys(PzG::SR_Ciagly)
-            .ZmienSzerokosc(1)
-            .ZmienKolor(5);
+    for( int i = 0; i < 5; ++i){
+        GNU.DodajNazwePliku(this->fileName[i].c_str())
+                .ZmienSposobRys(PzG::SR_Ciagly)
+                .ZmienSzerokosc(1)
+                .ZmienKolor(i + 1);
+    }
+
+    for( int i = 0; i < 5; ++i){
+        GNU.DodajNazwePliku(this->drone1FileName[i].c_str())
+                .ZmienSposobRys(PzG::SR_Ciagly)
+                .ZmienSzerokosc(1)
+                .ZmienKolor(2);
+    }
 
     GNU.ZmienTrybRys(PzG::TR_3D);
     GNU.UstawZakresX((this->XRange[0]),(this->XRange[1]));
@@ -70,6 +74,16 @@ void scene::drawScene(){
         }
         os << cub[i];
         os << cub[i][0];
+        os.close();
+    }
+
+    for(int i = 0; i < 5; i++){
+        os.open(this->drone1FileName[i]);
+        if(!os){
+            throw std::exception();
+        }
+        os << drone1[i];
+        os << drone1[i][0];
         os.close();
     }
 

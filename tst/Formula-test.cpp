@@ -1,11 +1,10 @@
 #include "gtest/gtest.h"
-#include "Matrix3x3.h"
 #include "Matrix4x4.h"
 #include <iostream>
 #include <utility>
-#include "Cuboid.h"
+#include "Drone.h"
 #include "Constants.h"
-#include "Vector.h"
+
 
 
 
@@ -448,4 +447,62 @@ TEST (Cuboid, calculateCenterOfMass) {
     Vector<double, 3> result = Vector<double, 3>(0,0,1);
 
     EXPECT_EQ(Adam.getCenterOfMass(), result);
+}
+
+TEST (Drone, constructorsAndIndexing) {
+
+    Vector<double, 3> translation = Vector<double, 3>(10,100,1000);
+    Drone drone1 = Drone();
+    Drone drone2 = Drone(translation);
+
+    double xMax = 3, xMin = -3, yMax = 3, yMin = -3, zMax = 1, zMin = -1;
+
+    Vector<double, 3> Ver0 = Vector<double, 3>(xMin,yMin,zMin);
+    Vector<double, 3> Ver1 = Vector<double, 3>(xMax,yMin,zMin);
+    Vector<double, 3> Ver2 = Vector<double, 3>(xMax,yMin,zMax);
+    Vector<double, 3> Ver3 = Vector<double, 3>(xMin,yMin,zMax);
+
+    Vector<double, 3> Ver4 = Vector<double, 3>(xMin,yMax,zMin);
+    Vector<double, 3> Ver5 = Vector<double, 3>(xMax,yMax,zMin);
+    Vector<double, 3> Ver6 = Vector<double, 3>(xMax,yMax,zMax);
+    Vector<double, 3> Ver7 = Vector<double, 3>(xMin,yMax,zMax);
+
+    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    Cuboid<double> result = Cuboid<double>(vertices);
+    EXPECT_EQ(drone1[4], result);
+    result.translationByVector(translation);
+    EXPECT_EQ(drone2[4], result);
+
+    for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
+        switch (i) {
+            case 0:
+                xMax = -1; xMin = -5; yMax = 5; yMin = 1; zMax = 2; zMin = 1.2;
+                break;
+            case 1:
+                xMax = 5; xMin = 1; yMax = 5; yMin = 1; zMax = 2; zMin = 1.2;
+                break;
+            case 2:
+                xMax = 5; xMin = 1; yMax = -1; yMin = -5; zMax = 2; zMin = 1.2;
+                break;
+            case 3:
+                xMax = -1; xMin = -5; yMax = -1; yMin = -5; zMax = 2; zMin = 1.2;
+                break;
+        }
+        Ver0 = Vector<double, 3>(xMin,yMin,zMin);
+        Ver1 = Vector<double, 3>(xMax,yMin,zMin);
+        Ver2 = Vector<double, 3>(xMax,yMin,zMax);
+        Ver3 = Vector<double, 3>(xMin,yMin,zMax);
+        Ver4 = Vector<double, 3>(xMin,yMax,zMin);
+        Ver5 = Vector<double, 3>(xMax,yMax,zMin);
+        Ver6 = Vector<double, 3>(xMax,yMax,zMax);
+        Ver7 = Vector<double, 3>(xMin,yMax,zMax);
+
+        vertices[0] = Ver0; vertices[1] = Ver1; vertices[2] = Ver2; vertices[3] = Ver3,
+                vertices[4] = Ver4; vertices[5] = Ver5; vertices[6] = Ver6; vertices[7] = Ver7;
+                result = Cuboid<double>(vertices);
+        EXPECT_EQ(drone1[i], result);
+        result.translationByVector(translation);
+        EXPECT_EQ(drone2[i], result);
+    }
+
 }

@@ -14,5 +14,6 @@ const int MATRIX_DIM = 3;
 const int VERTICES_NUMBER = 8;
 const int SIDES_NUMBER = 12;
 const double MIN_THRESHOLD = 0.000001;
+const int NUMBER_OF_ROTORS = 4;
 
 #endif //ROTATION2D_CONSTANS_H

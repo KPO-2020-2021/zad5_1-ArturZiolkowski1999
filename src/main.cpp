@@ -49,6 +49,7 @@ int main() {
     gnu.cub[2] = Cuboid<double>(vertices2);
     gnu.cub[3] = Cuboid<double>(vertices3);
     gnu.cub[4] = Cuboid<double>(vertices4);
+    gnu.drone1 = Drone(Ver6);
 
     /* Drawing initial rectangle and display menu*/
     menuDisplay();
