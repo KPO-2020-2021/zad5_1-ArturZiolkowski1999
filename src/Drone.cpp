@@ -22,16 +22,16 @@ Drone::Drone() {
     for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
         switch (i) {
             case 0:
-                xMax = -1; xMin = -5; yMax = 5; yMin = 1; zMax = 2; zMin = 1.2;
+                xMax = -2; xMin = -4; yMax = 4; yMin = 2; zMax = 2; zMin = 1.2;
                 break;
             case 1:
-                xMax = 5; xMin = 1; yMax = 5; yMin = 1; zMax = 2; zMin = 1.2;
+                xMax = 4; xMin = 2; yMax = 4; yMin = 2; zMax = 2; zMin = 1.2;
                 break;
             case 2:
-                xMax = 5; xMin = 1; yMax = -1; yMin = -5; zMax = 2; zMin = 1.2;
+                xMax = 4; xMin = 2; yMax = -2; yMin = -4; zMax = 2; zMin = 1.2;
                 break;
             case 3:
-                xMax = -1; xMin = -5; yMax = -1; yMin = -5; zMax = 2; zMin = 1.2;
+                xMax = -2; xMin = -4; yMax = -2; yMin = -4; zMax = 2; zMin = 1.2;
                 break;
         }
         Ver0 = Vector<double, 3>(xMin,yMin,zMin);
