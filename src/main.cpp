@@ -40,15 +40,16 @@ int main() {
 
 
     /* Initialize "Lacze do gnuplota" to work with in class scene*/
-    double XRange[2] = {-15, 15};
-    double YRange[2] = {-15, 15};
-    double ZRange[2] = {-15, 15};
+    double XRange[2] = {0, 200};
+    double YRange[2] = {0, 200};
+    double ZRange[2] = {0, 200};
     scene gnu = scene(XRange, YRange, ZRange);
     gnu.cub[0] = Cuboid<double>(vertices);
     gnu.cub[1] = Cuboid<double>(vertices1);
     gnu.cub[2] = Cuboid<double>(vertices2);
     gnu.cub[3] = Cuboid<double>(vertices3);
     gnu.cub[4] = Cuboid<double>(vertices4);
+    Ver6 =  Ver6 * -2;
     gnu.drone1 = Drone(Ver6);
 
     /* Drawing initial rectangle and display menu*/

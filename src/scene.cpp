@@ -36,6 +36,8 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
     this->drone1FileName[3] = "../data/drone1_rotor3.txt";
     this->drone1FileName[4] = "../data/drone1_deck.txt";
 
+    this->boardFileName = "../data/board.txt";
+
     this->XRange[0] = _XRange[0];
     this->XRange[1] = _XRange[1];
     this->YRange[0] = _YRange[0];
@@ -59,6 +61,11 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
                 .ZmienKolor(2);
     }
 
+    GNU.DodajNazwePliku(this->boardFileName.c_str())
+            .ZmienSposobRys(PzG::SR_Ciagly)
+            .ZmienSzerokosc(1)
+            .ZmienKolor(1);
+
     GNU.ZmienTrybRys(PzG::TR_3D);
     GNU.UstawZakresX((this->XRange[0]),(this->XRange[1]));
     GNU.UstawZakresY((this->YRange[0]),(this->YRange[1]));
@@ -73,7 +80,6 @@ void scene::drawScene(){
             throw std::exception();
         }
         os << cub[i];
-        os << cub[i][0];
         os.close();
     }
 
@@ -83,10 +89,28 @@ void scene::drawScene(){
             throw std::exception();
         }
         os << drone1[i];
-        os << drone1[i][0];
         os.close();
     }
 
+    os.open(this->boardFileName);
+    if(!os){
+        throw std::exception();
+    }
+
+    for(int k = 0; k <= 200; k+= 10){
+        for(int l = 0; l <= 200; l += 10){
+        os << l << " " << k+10 << " 0\n";
+        os << l << " " << k << " 0\n";
+        if(l <200){
+            os << "#\n\n";
+        }
+
+        }
+        os << 0 << " " << k << " 0\n#\n\n";
+    }
+
+
+    os.close();
     GNU.Inicjalizuj();
     GNU.Rysuj();
 

@@ -205,49 +205,40 @@ std::ostream &operator<<(std::ostream &ost, Cuboid<T> &cub) {
     ost << std::setprecision(10) << std::fixed;
 
     //for the non empty cuboid but it doesnt work
-//    double xMax = cub[1][0]; double xMin = cub[0][0]; double xMid = (xMax + xMin) /2;
-//    double yMax = cub[4][1]; double yMin = cub[0][1]; double yMid = (yMax + yMin) /2;
-//    double zMax = cub[3][2]; double zMin = cub[0][2]; double zMid = (zMax + zMin) /2;
-//
-//    Vector<double, 3> up = Vector<double, 3>(xMid, yMin, zMid);
-//    Vector<double, 3> down = Vector<double, 3>(xMid, yMax, zMid);
-//
-//
-//    ost << up;
-//    ost << xMax << " " << yMin << " " << zMax << "\n";
-//    ost << xMax << " " << yMax << " " << zMax << "\n";
-//    ost << down << "\n";
-//
-//    ost << up;
-//    ost << xMax << " " << yMin << " " << zMin << "\n";
-//    ost << xMax << " " << yMax << " " << zMin << "\n";
-//    ost << down << "\n";
-//
-//    ost << up;
-//    ost << xMin << " " << yMin << " " << zMin << "\n";
-//    ost << xMin << " " << yMax << " " << zMin << "\n";
-//    ost << down << "#\n";
-//
-//    ost << up;
-//    ost << xMin << " " << yMin << " " << zMax << "\n";
-//    ost << xMin << " " << yMax << " " << zMax << "\n";
-//    ost << down << "\n";
-//
-//    ost << up;
-//    ost << xMax << " " << yMin << " " << zMax << "\n";
-//    ost << xMax << " " << yMax << " " << zMax << "\n";
-//    ost << down << "\n";
 
-    ost << cub.vertices[0]; ost << cub.vertices[1];
-    ost << cub.vertices[2]; ost << cub.vertices[3];
-    ost << cub.vertices[3]; ost << cub.vertices[0];
-    ost << cub.vertices[4]; ost << cub.vertices[5];
-    ost << cub.vertices[1]; ost << cub.vertices[5];
-    ost << cub.vertices[5]; ost << cub.vertices[6];
-    ost << cub.vertices[2]; ost << cub.vertices[6];
-    ost << cub.vertices[7]; ost << cub.vertices[3];
-    ost << cub.vertices[7]; ost << cub.vertices[4];
-    ost << cub.vertices[0];
+
+    Vector<double, 3> up = cub[2] - cub[0];
+    up = up/2;
+    up = up + cub[0];
+    Vector<double, 3> down = cub[6] - cub[4];
+    down = down/2;
+    down = down + cub[4];
+
+
+    ost << up;
+    ost << cub[2];
+    ost << cub[6];
+    ost << down << "#\n\n";
+
+    ost << up;
+    ost << cub[1];
+    ost << cub[5];
+    ost << down << "#\n\n";
+
+    ost << up;
+    ost << cub[0];
+    ost << cub[4];
+    ost << down << "#\n\n";
+
+    ost << up;
+    ost << cub[3];
+    ost << cub[7];
+    ost << down << "#\n\n";
+
+    ost << up;
+    ost << cub[2];
+    ost << cub[6];
+    ost << down << "#\n\n";
 
     return ost;
 }

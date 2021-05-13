@@ -12,6 +12,7 @@
 class scene{
 private:
     std::string drone1FileName[5];
+    std::string boardFileName;
     std::string fileName[5];
     PzG::LaczeDoGNUPlota GNU;
     double XRange[2];
