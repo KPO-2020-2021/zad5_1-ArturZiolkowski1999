@@ -109,16 +109,14 @@ void scene::drawScene(){
         os << 0 << " " << k << " 0\n#\n\n";
     }
 
-
     os.close();
     GNU.Inicjalizuj();
     GNU.Rysuj();
-
 }
 
 
 void scene::animateRotateCuboid( double &degree, char &axis) {
-    Cuboid<double> oldCub = this->cub[this->chosenIndex];
+    Cuboid oldCub = this->cub[this->chosenIndex];
     Matrix3x3 rotMatrix = Matrix3x3();
     Matrix3x3 oldMatrix = this->rotMatrix;
     double singleDegree = 0;
@@ -142,9 +140,11 @@ void scene::animateRotateCuboid( double &degree, char &axis) {
 }
 
 void scene::animateTranslateRectangle() {
-    Cuboid<double> oldCub = this->cub[this->chosenIndex];
-    Vector<double, 3> animateTranslation = this->translation/this->translation.getLength();
-    Vector<double, 3> unityTranslation = this->translation/this->translation.getLength();
+    Cuboid oldCub = this->cub[this->chosenIndex];
+    vector3D animateTranslation = this->translation;
+    animateTranslation = animateTranslation/this->translation.getLength();
+    vector3D unityTranslation = this->translation;
+    unityTranslation = unityTranslation/this->translation.getLength();
     unityTranslation = unityTranslation/RESOLUTION;
     double i = 0;
     while (animateTranslation.getLength() < this->translation.getLength()){

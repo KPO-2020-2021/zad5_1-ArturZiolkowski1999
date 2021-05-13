@@ -11,8 +11,8 @@
 TEST (Vector, EmptyConstructor) {
 
     // 3 dim
-    Vector<double, 3> Vec1 = Vector<double, 3>();
-    Vector<double, 3> Vec2 = Vector<double, 3>();
+    vector3D Vec1 = vector3D();
+    vector3D Vec2 = vector3D();
     Vec1.setX(0);
     Vec1.setY(0);
     Vec1.setZ(0);
@@ -66,59 +66,59 @@ TEST (Vector, intConstructor) {
 
 TEST (Vector, Addition) {
 
-    Vector<double, 3> Vec1 = Vector<double, 3>(2.3,4.5, 1.1);
-    Vector<double, 3> Vec2 = Vector<double, 3>(1,1, 1);
-    Vector<double, 3> result = Vector<double, 3>(3.3, 5.5, 2.1);
+    vector3D Vec1 = vector3D(2.3,4.5, 1.1);
+    vector3D Vec2 = vector3D(1,1, 1);
+    vector3D result = vector3D(3.3, 5.5, 2.1);
     EXPECT_EQ(Vec1 + Vec2, result);
 }
 
 TEST (Vector, Subtruction) {
 
-    Vector<double, 3> Vec1 = Vector<double, 3>(2.3,4.5, 1.1);
-    Vector<double, 3> Vec2 = Vector<double, 3>(1,1, 1);
-    Vector<double, 3> result = Vector<double, 3>(1.3, 3.5, 0.1);
+    vector3D Vec1 = vector3D(2.3,4.5, 1.1);
+    vector3D Vec2 = vector3D(1,1, 1);
+    vector3D result = vector3D(1.3, 3.5, 0.1);
 
     EXPECT_EQ(Vec1 - Vec2, result);
 }
 
 TEST (Vector, Multiplication) {
 
-    Vector<double, 3> Vec1 = Vector<double, 3>(2,4, 5);
-    Vector<double, 3> result = Vector<double, 3>(4, 8, 10);
+    vector3D Vec1 = vector3D(2,4, 5);
+    vector3D result = vector3D(4, 8, 10);
     EXPECT_EQ(Vec1 * 2, result);
 }
 
 TEST (Vector, Division) {
 
-    Vector<double, 3> Vec1 = Vector<double, 3>(2,4, 8);
-    Vector<double, 3> result = Vector<double, 3>(1, 2, 4);
+    vector3D Vec1 = vector3D(2,4, 8);
+    vector3D result = vector3D(1, 2, 4);
     EXPECT_EQ(Vec1 / 2, result);
 }
 
 TEST (Vector, FailDivision) {
 
-    Vector<double, 3> Vec1 = Vector<double, 3>(2,4, 8);
+    vector3D Vec1 = vector3D(2,4, 8);
 
     EXPECT_THROW(Vec1 / 0, std::invalid_argument);
 }
 
 TEST (Vector, FailIndexing) {
 
-    Vector<double, 3> Vec1 = Vector<double, 3>(2,4, 8);
+    vector3D Vec1 = vector3D(2,4, 8);
 
     EXPECT_THROW(Vec1[6], std::invalid_argument);
 }
 
 TEST (Vector, Indexing) {
 
-    Vector<double, 3> Vec1 = Vector<double, 3>(2,4,8);
+    vector3D Vec1 = vector3D(2,4,8);
 
     EXPECT_EQ(Vec1[1], 4);
 
     Vec1[0] = 3;
     Vec1[1] = 4;
     Vec1[2] = 6;
-    Vector<double, 3> result =Vector<double, 3>(3, 4, 6);
+    vector3D result = vector3D(3, 4, 6);
     EXPECT_EQ(Vec1, result);
 
 }
@@ -126,7 +126,7 @@ TEST (Vector, Indexing) {
 TEST (Vector, Ostream) {
 
     std::stringstream ost;
-    Vector<double, 3> vec = Vector<double, 3>(3.1, 3.1, 7.5);
+    vector3D vec = vector3D(3.1, 3.1, 7.5);
     ost << vec;
     /* in cout program print double in 10 decimal point fixed precision, but i didnt know how to automaticly test cout*/
     EXPECT_EQ("3.1 3.1 7.5\n", ost.str());
@@ -134,12 +134,12 @@ TEST (Vector, Ostream) {
 
 TEST (Vector, GetLength) {
 
-    Vector<double, 3> Vec1 = Vector<double, 3>(0, 4, 3);
+    vector3D Vec1 = vector3D(0, 4, 3);
     double length;
     length = Vec1.getLength();
     EXPECT_EQ(length, 5.0);
 
-    Vec1 = Vector<double, 3>(6,0,0);
+    Vec1 = vector3D(6,0,0);
     length = Vec1.getLength();
     EXPECT_EQ(length, 6);
 }
@@ -258,12 +258,12 @@ TEST (Matrix, FailIndexing) {
 
 TEST (Cuboid, EmptyConstructor) {
 
-    Cuboid<double> Adam = Cuboid<double>();
-    Cuboid<double> Ewa = Cuboid<double>();
+    Cuboid Adam = Cuboid();
+    Cuboid Ewa = Cuboid();
 
-    Vector<double, 3> Vec = Vector<double, 3>();
+    vector3D Vec = vector3D();
 
-    for(int i = 0; i < VERTICES_NUMBER; i++){
+    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; i++){
         Adam[i] = Vec;
     }
 
@@ -272,21 +272,21 @@ TEST (Cuboid, EmptyConstructor) {
 
 TEST (Cuboid, ConstructorWithVerticesInOrder) {
 
-    Vector<double, 3> Ver0 = Vector<double, 3>(0,0,1);
-    Vector<double, 3> Ver1 = Vector<double, 3>(5,0,1);
-    Vector<double, 3> Ver2 = Vector<double, 3>(5,0,4);
-    Vector<double, 3> Ver3 = Vector<double, 3>(0,0,4);
+    vector3D Ver0 = vector3D(0,0,1);
+    vector3D Ver1 = vector3D(5,0,1);
+    vector3D Ver2 = vector3D(5,0,4);
+    vector3D Ver3 = vector3D(0,0,4);
 
-    Vector<double, 3> Ver4 = Vector<double, 3>(0,7,1);
-    Vector<double, 3> Ver5 = Vector<double, 3>(5,7,1);
-    Vector<double, 3> Ver6 = Vector<double, 3>(5,7,4);
-    Vector<double, 3> Ver7 = Vector<double, 3>(0,7,4);
+    vector3D Ver4 = vector3D(0,7,1);
+    vector3D Ver5 = vector3D(5,7,1);
+    vector3D Ver6 = vector3D(5,7,4);
+    vector3D Ver7 = vector3D(0,7,4);
 
-    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-    Cuboid<double> Adam = Cuboid<double>(vertices);
-    Cuboid<double> Ewa = Cuboid<double>();
+    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    Cuboid Adam = Cuboid(vertices);
+    Cuboid Ewa = Cuboid();
 
-    for(int i = 0; i < VERTICES_NUMBER; i++){
+    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; i++){
         Ewa[i] = vertices[i];
     }
 
@@ -295,24 +295,24 @@ TEST (Cuboid, ConstructorWithVerticesInOrder) {
 
 
 TEST (Cuboid, TranslationByWector) {
-    Vector<double, 3> Ver0 = Vector<double, 3>(0,0,1);
-    Vector<double, 3> Ver1 = Vector<double, 3>(5,0,1);
-    Vector<double, 3> Ver2 = Vector<double, 3>(5,0,4);
-    Vector<double, 3> Ver3 = Vector<double, 3>(0,0,4);
+    vector3D Ver0 = vector3D(0,0,1);
+    vector3D Ver1 = vector3D(5,0,1);
+    vector3D Ver2 = vector3D(5,0,4);
+    vector3D Ver3 = vector3D(0,0,4);
 
-    Vector<double, 3> Ver4 = Vector<double, 3>(0,7,1);
-    Vector<double, 3> Ver5 = Vector<double, 3>(5,7,1);
-    Vector<double, 3> Ver6 = Vector<double, 3>(5,7,4);
-    Vector<double, 3> Ver7 = Vector<double, 3>(0,7,4);
+    vector3D Ver4 = vector3D(0,7,1);
+    vector3D Ver5 = vector3D(5,7,1);
+    vector3D Ver6 = vector3D(5,7,4);
+    vector3D Ver7 = vector3D(0,7,4);
 
-    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-    Cuboid<double> Adam = Cuboid<double>(vertices);
-    Vector<double, 3> translation = Vector<double, 3>(1, 2, 3);
+    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    Cuboid Adam = Cuboid(vertices);
+    vector3D translation = vector3D(1, 2, 3);
 
     Adam.translationByVector(translation);
-    Cuboid<double> Ewa = Cuboid<double>();
+    Cuboid Ewa = Cuboid();
 
-    for(int i = 0; i < VERTICES_NUMBER; i++){
+    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; i++){
         Ewa[i] = (vertices[i] + translation);
     }
     EXPECT_EQ(Adam, Ewa);
@@ -320,24 +320,24 @@ TEST (Cuboid, TranslationByWector) {
 
 TEST (Cuboid, RotationByDegrees) {
 
-    Vector<double, 3> Ver0 = Vector<double, 3>(0,0,1);
-    Vector<double, 3> Ver1 = Vector<double, 3>(5,0,1);
-    Vector<double, 3> Ver2 = Vector<double, 3>(5,0,4);
-    Vector<double, 3> Ver3 = Vector<double, 3>(0,0,4);
+    vector3D Ver0 = vector3D(0,0,1);
+    vector3D Ver1 = vector3D(5,0,1);
+    vector3D Ver2 = vector3D(5,0,4);
+    vector3D Ver3 = vector3D(0,0,4);
 
-    Vector<double, 3> Ver4 = Vector<double, 3>(0,7,1);
-    Vector<double, 3> Ver5 = Vector<double, 3>(5,7,1);
-    Vector<double, 3> Ver6 = Vector<double, 3>(5,7,4);
-    Vector<double, 3> Ver7 = Vector<double, 3>(0,7,4);
+    vector3D Ver4 = vector3D(0,7,1);
+    vector3D Ver5 = vector3D(5,7,1);
+    vector3D Ver6 = vector3D(5,7,4);
+    vector3D Ver7 = vector3D(0,7,4);
 
-    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-    Cuboid<double> Adam = Cuboid<double>(vertices);
+    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    Cuboid Adam = Cuboid(vertices);
     Matrix3x3 rotation = Matrix3x3(360, 'z');
     Adam.rotationByMatrix(rotation);
 
-    Cuboid<double> Ewa = Cuboid<double>();
+    Cuboid Ewa = Cuboid();
 
-    for(int i = 0; i < VERTICES_NUMBER; i++){
+    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; i++){
         Ewa[i] = (rotation * vertices[i]);
     }
 
@@ -347,56 +347,47 @@ TEST (Cuboid, RotationByDegrees) {
 TEST (Cuboid, Ostream) {
 
     std::stringstream ost;
-    Vector<double, 3> Ver0 = Vector<double, 3>(0,0,1);
-    Vector<double, 3> Ver1 = Vector<double, 3>(5,0,1);
-    Vector<double, 3> Ver2 = Vector<double, 3>(5,0,4);
-    Vector<double, 3> Ver3 = Vector<double, 3>(0,0,4);
+    vector3D Ver0 = vector3D(0,0,1);
+    vector3D Ver1 = vector3D(5,0,1);
+    vector3D Ver2 = vector3D(5,0,4);
+    vector3D Ver3 = vector3D(0,0,4);
 
-    Vector<double, 3> Ver4 = Vector<double, 3>(0,7,1);
-    Vector<double, 3> Ver5 = Vector<double, 3>(5,7,1);
-    Vector<double, 3> Ver6 = Vector<double, 3>(5,7,4);
-    Vector<double, 3> Ver7 = Vector<double, 3>(0,7,4);
+    vector3D Ver4 = vector3D(0,7,1);
+    vector3D Ver5 = vector3D(5,7,1);
+    vector3D Ver6 = vector3D(5,7,4);
+    vector3D Ver7 = vector3D(0,7,4);
 
-    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-    Cuboid<double> Adam = Cuboid<double>(vertices);
+    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    Cuboid Adam = Cuboid(vertices);
     ost << Adam;
     /* cuboid in cout give 10 decimal point fixed precision */
-    EXPECT_EQ("0.0000000000 0.0000000000 1.0000000000\n"
-              "5.0000000000 0.0000000000 1.0000000000\n"
-              "5.0000000000 0.0000000000 4.0000000000\n"
-              "0.0000000000 0.0000000000 4.0000000000\n"
-              "0.0000000000 0.0000000000 4.0000000000\n"
-              "0.0000000000 0.0000000000 1.0000000000\n"
-              "0.0000000000 7.0000000000 1.0000000000\n"
-              "5.0000000000 7.0000000000 1.0000000000\n"
-              "5.0000000000 0.0000000000 1.0000000000\n"
-              "5.0000000000 7.0000000000 1.0000000000\n"
-              "5.0000000000 7.0000000000 1.0000000000\n"
-              "5.0000000000 7.0000000000 4.0000000000\n"
-              "5.0000000000 0.0000000000 4.0000000000\n"
-              "5.0000000000 7.0000000000 4.0000000000\n"
-              "0.0000000000 7.0000000000 4.0000000000\n"
-              "0.0000000000 0.0000000000 4.0000000000\n"
-              "0.0000000000 7.0000000000 4.0000000000\n"
-              "0.0000000000 7.0000000000 1.0000000000\n"
-              "0.0000000000 0.0000000000 1.0000000000\n"
+    EXPECT_EQ("2.5000000000 0.0000000000 2.5000000000\n5.0000000000 0.0000000000 4.0000000000"
+              "\n5.0000000000 7.0000000000 4.0000000000\n2.5000000000 7.0000000000 2.5000000000\n#\n\n"
+              "2.5000000000 0.0000000000 2.5000000000\n5.0000000000 0.0000000000 1.0000000000\n"
+              "5.0000000000 7.0000000000 1.0000000000\n2.5000000000 7.0000000000 2.5000000000\n#\n""\n"
+              "2.5000000000 0.0000000000 2.5000000000\n0.0000000000 0.0000000000 1.0000000000\n"
+              "0.0000000000 7.0000000000 1.0000000000\n2.5000000000 7.0000000000 2.5000000000\n#\n\n"
+              "2.5000000000 0.0000000000 2.5000000000\n0.0000000000 0.0000000000 4.0000000000\n"
+              "0.0000000000 7.0000000000 4.0000000000\n2.5000000000 7.0000000000 2.5000000000\n#\n\n"
+              "2.5000000000 0.0000000000 2.5000000000\n5.0000000000 0.0000000000 4.0000000000\n"
+              "5.0000000000 7.0000000000 4.0000000000\n2.5000000000 7.0000000000 2.5000000000\n#\n\n"
     , ost.str());
 }
 
 TEST (Cuboid, GetSidesLength) {
 
-    Vector<double, 3> Ver0 = Vector<double, 3>(0,0,1);
-    Vector<double, 3> Ver1 = Vector<double, 3>(5,0,1);
-    Vector<double, 3> Ver2 = Vector<double, 3>(5,0,4);
-    Vector<double, 3> Ver3 = Vector<double, 3>(0,0,4);
+    vector3D Ver0 = vector3D(0,0,1);
+    vector3D Ver1 = vector3D(5,0,1);
+    vector3D Ver2 = vector3D(5,0,4);
+    vector3D Ver3 = vector3D(0,0,4);
 
-    Vector<double, 3> Ver4 = Vector<double, 3>(0,7,1);
-    Vector<double, 3> Ver5 = Vector<double, 3>(5,7,1);
-    Vector<double, 3> Ver6 = Vector<double, 3>(5,7,4);
-    Vector<double, 3> Ver7 = Vector<double, 3>(0,7,4);
+    vector3D Ver4 = vector3D(0,7,1);
+    vector3D Ver5 = vector3D(5,7,1);
+    vector3D Ver6 = vector3D(5,7,4);
+    vector3D Ver7 = vector3D(0,7,4);
 
-    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-    Cuboid<double> Adam = Cuboid<double>(vertices);
+    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    Cuboid Adam = Cuboid(vertices);
     Adam.calculateSidesLength();
 
 
@@ -411,64 +402,63 @@ TEST (Cuboid, GetSidesLength) {
 
 TEST (Cuboid, Indexing) {
 
-    Vector<double, 3> Ver0 = Vector<double, 3>(0,0,1);
-    Vector<double, 3> Ver1 = Vector<double, 3>(5,0,1);
-    Vector<double, 3> Ver2 = Vector<double, 3>(5,0,4);
-    Vector<double, 3> Ver3 = Vector<double, 3>(0,0,4);
+    vector3D Ver0 = vector3D(0,0,1);
+    vector3D Ver1 = vector3D(5,0,1);
+    vector3D Ver2 = vector3D(5,0,4);
+    vector3D Ver3 = vector3D(0,0,4);
 
-    Vector<double, 3> Ver4 = Vector<double, 3>(0,7,1);
-    Vector<double, 3> Ver5 = Vector<double, 3>(5,7,1);
-    Vector<double, 3> Ver6 = Vector<double, 3>(5,7,4);
-    Vector<double, 3> Ver7 = Vector<double, 3>(0,7,4);
+    vector3D Ver4 = vector3D(0,7,1);
+    vector3D Ver5 = vector3D(5,7,1);
+    vector3D Ver6 = vector3D(5,7,4);
+    vector3D Ver7 = vector3D(0,7,4);
 
-    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-    Cuboid<double> Adam = Cuboid<double>(vertices);
-    Vector<double, 3> result= Vector<double, 3>(1.2, 1.3, 1.4);
+    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    Cuboid Adam = Cuboid(vertices);
+    vector3D result= vector3D(1.2, 1.3, 1.4);
     Adam[0] = result;
 
 EXPECT_EQ(Adam[0], result);
 }
 
 TEST (Cuboid, calculateCenterOfMass) {
+    vector3D Ver0 = vector3D(-1,-1,0);
+    vector3D Ver1 = vector3D(1,-1,0);
+    vector3D Ver2 = vector3D(1,-1,2);
+    vector3D Ver3 = vector3D(-1,-1,2);
 
-    Vector<double, 3> Ver0 = Vector<double, 3>(-1,-1,0);
-    Vector<double, 3> Ver1 = Vector<double, 3>(1,-1,0);
-    Vector<double, 3> Ver2 = Vector<double, 3>(1,-1,2);
-    Vector<double, 3> Ver3 = Vector<double, 3>(-1,-1,2);
+    vector3D Ver4 = vector3D(-1,1,0);
+    vector3D Ver5 = vector3D(1,1,0);
+    vector3D Ver6 = vector3D(1,1,2);
+    vector3D Ver7 = vector3D(-1,1,2);
 
-    Vector<double, 3> Ver4 = Vector<double, 3>(-1,1,0);
-    Vector<double, 3> Ver5 = Vector<double, 3>(1,1,0);
-    Vector<double, 3> Ver6 = Vector<double, 3>(1,1,2);
-    Vector<double, 3> Ver7 = Vector<double, 3>(-1,1,2);
+    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    Cuboid Adam = Cuboid(vertices);
 
-    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-    Cuboid<double> Adam = Cuboid<double>(vertices);
-
-    Vector<double, 3> result = Vector<double, 3>(0,0,1);
+    vector3D result = vector3D(0,0,1);
 
     EXPECT_EQ(Adam.getCenterOfMass(), result);
 }
 
 TEST (Drone, constructorsAndIndexing) {
 
-    Vector<double, 3> translation = Vector<double, 3>(10,100,1000);
+    vector3D translation = vector3D(10,100,1000);
     Drone drone1 = Drone();
     Drone drone2 = Drone(translation);
 
     double xMax = 3, xMin = -3, yMax = 3, yMin = -3, zMax = 1, zMin = -1;
 
-    Vector<double, 3> Ver0 = Vector<double, 3>(xMin,yMin,zMin);
-    Vector<double, 3> Ver1 = Vector<double, 3>(xMax,yMin,zMin);
-    Vector<double, 3> Ver2 = Vector<double, 3>(xMax,yMin,zMax);
-    Vector<double, 3> Ver3 = Vector<double, 3>(xMin,yMin,zMax);
+    vector3D Ver0 = vector3D(xMin,yMin,zMin);
+    vector3D Ver1 = vector3D(xMax,yMin,zMin);
+    vector3D Ver2 = vector3D(xMax,yMin,zMax);
+    vector3D Ver3 = vector3D(xMin,yMin,zMax);
 
-    Vector<double, 3> Ver4 = Vector<double, 3>(xMin,yMax,zMin);
-    Vector<double, 3> Ver5 = Vector<double, 3>(xMax,yMax,zMin);
-    Vector<double, 3> Ver6 = Vector<double, 3>(xMax,yMax,zMax);
-    Vector<double, 3> Ver7 = Vector<double, 3>(xMin,yMax,zMax);
+    vector3D Ver4 = vector3D(xMin,yMax,zMin);
+    vector3D Ver5 = vector3D(xMax,yMax,zMin);
+    vector3D Ver6 = vector3D(xMax,yMax,zMax);
+    vector3D Ver7 = vector3D(xMin,yMax,zMax);
 
-    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-    Cuboid<double> result = Cuboid<double>(vertices);
+    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    Cuboid result = Cuboid(vertices);
     EXPECT_EQ(drone1[4], result);
     result.translationByVector(translation);
     EXPECT_EQ(drone2[4], result);
@@ -488,18 +478,18 @@ TEST (Drone, constructorsAndIndexing) {
                 xMax = -2; xMin = -4; yMax = -2; yMin = -4; zMax = 2; zMin = 1.2;
                 break;
         }
-        Ver0 = Vector<double, 3>(xMin,yMin,zMin);
-        Ver1 = Vector<double, 3>(xMax,yMin,zMin);
-        Ver2 = Vector<double, 3>(xMax,yMin,zMax);
-        Ver3 = Vector<double, 3>(xMin,yMin,zMax);
-        Ver4 = Vector<double, 3>(xMin,yMax,zMin);
-        Ver5 = Vector<double, 3>(xMax,yMax,zMin);
-        Ver6 = Vector<double, 3>(xMax,yMax,zMax);
-        Ver7 = Vector<double, 3>(xMin,yMax,zMax);
+        Ver0 = vector3D(xMin,yMin,zMin);
+        Ver1 = vector3D(xMax,yMin,zMin);
+        Ver2 = vector3D(xMax,yMin,zMax);
+        Ver3 = vector3D(xMin,yMin,zMax);
+        Ver4 = vector3D(xMin,yMax,zMin);
+        Ver5 = vector3D(xMax,yMax,zMin);
+        Ver6 = vector3D(xMax,yMax,zMax);
+        Ver7 = vector3D(xMin,yMax,zMax);
 
         vertices[0] = Ver0; vertices[1] = Ver1; vertices[2] = Ver2; vertices[3] = Ver3,
                 vertices[4] = Ver4; vertices[5] = Ver5; vertices[6] = Ver6; vertices[7] = Ver7;
-                result = Cuboid<double>(vertices);
+                result = Cuboid(vertices);
         EXPECT_EQ(drone1[i], result);
         result.translationByVector(translation);
         EXPECT_EQ(drone2[i], result);

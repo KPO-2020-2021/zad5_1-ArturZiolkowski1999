@@ -7,7 +7,7 @@
 
 template <typename T, unsigned int dimension>
 class Matrix {
-private:
+protected:
     T matrix[dimension][dimension];
     double degreeToRadians(double degree);
 public:

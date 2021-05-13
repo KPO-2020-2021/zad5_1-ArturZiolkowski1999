@@ -23,8 +23,8 @@ public:
     Drone drone1;
     int chosenIndex;
     Matrix3x3 rotMatrix = Matrix3x3();
-    Vector<double, 3> translation;
-    Cuboid<double> cub[5];
+    vector3D translation;
+    Cuboid cub[5];
     scene();
     scene(double _XRange[2], double _YRange[2], double _ZRange[2]);
     void drawScene();

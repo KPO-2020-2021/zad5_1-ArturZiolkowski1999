@@ -10,7 +10,7 @@
 
 template <typename T, unsigned int dimension>
 class Vector {
-private:
+protected:
     T vector[dimension];
 public:
 
@@ -52,6 +52,8 @@ public:
     void setY(T _y);
 
     void setZ(T _z);
+    friend class vector3D;
+
 };
 
     template<typename T, unsigned int dimension>
@@ -239,8 +241,6 @@ public:
         ost << Vec.vector[2] << std::endl;
         return ost;
     }
-
-
 
 
 #endif //ROTATION3D_VECTOR_H

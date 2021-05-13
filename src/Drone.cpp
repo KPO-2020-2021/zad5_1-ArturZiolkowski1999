@@ -6,18 +6,18 @@
 Drone::Drone() {
     double xMax = 3, xMin = -3, yMax = 3, yMin = -3, zMax = 1, zMin = -1;
 
-    Vector<double, 3> Ver0 = Vector<double, 3>(xMin,yMin,zMin);
-    Vector<double, 3> Ver1 = Vector<double, 3>(xMax,yMin,zMin);
-    Vector<double, 3> Ver2 = Vector<double, 3>(xMax,yMin,zMax);
-    Vector<double, 3> Ver3 = Vector<double, 3>(xMin,yMin,zMax);
+    vector3D Ver0 = vector3D(xMin,yMin,zMin);
+    vector3D Ver1 = vector3D(xMax,yMin,zMin);
+    vector3D Ver2 = vector3D(xMax,yMin,zMax);
+    vector3D Ver3 = vector3D(xMin,yMin,zMax);
 
-    Vector<double, 3> Ver4 = Vector<double, 3>(xMin,yMax,zMin);
-    Vector<double, 3> Ver5 = Vector<double, 3>(xMax,yMax,zMin);
-    Vector<double, 3> Ver6 = Vector<double, 3>(xMax,yMax,zMax);
-    Vector<double, 3> Ver7 = Vector<double, 3>(xMin,yMax,zMax);
+    vector3D Ver4 = vector3D(xMin,yMax,zMin);
+    vector3D Ver5 = vector3D(xMax,yMax,zMin);
+    vector3D Ver6 = vector3D(xMax,yMax,zMax);
+    vector3D Ver7 = vector3D(xMin,yMax,zMax);
 
-    Vector<double, 3> vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-    this->deck = Cuboid<double>(vertices);
+    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
+    this->deck = Cuboid(vertices);
 
     for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
         switch (i) {
@@ -34,22 +34,22 @@ Drone::Drone() {
                 xMax = -2; xMin = -4; yMax = -2; yMin = -4; zMax = 2; zMin = 1.2;
                 break;
         }
-        Ver0 = Vector<double, 3>(xMin,yMin,zMin);
-        Ver1 = Vector<double, 3>(xMax,yMin,zMin);
-        Ver2 = Vector<double, 3>(xMax,yMin,zMax);
-        Ver3 = Vector<double, 3>(xMin,yMin,zMax);
-        Ver4 = Vector<double, 3>(xMin,yMax,zMin);
-        Ver5 = Vector<double, 3>(xMax,yMax,zMin);
-        Ver6 = Vector<double, 3>(xMax,yMax,zMax);
-        Ver7 = Vector<double, 3>(xMin,yMax,zMax);
+        Ver0 = vector3D(xMin,yMin,zMin);
+        Ver1 = vector3D(xMax,yMin,zMin);
+        Ver2 = vector3D(xMax,yMin,zMax);
+        Ver3 = vector3D(xMin,yMin,zMax);
+        Ver4 = vector3D(xMin,yMax,zMin);
+        Ver5 = vector3D(xMax,yMax,zMin);
+        Ver6 = vector3D(xMax,yMax,zMax);
+        Ver7 = vector3D(xMin,yMax,zMax);
 
         vertices[0] = Ver0; vertices[1] = Ver1; vertices[2] = Ver2; vertices[3] = Ver3,
         vertices[4] = Ver4; vertices[5] = Ver5; vertices[6] = Ver6; vertices[7] = Ver7;
-        this->rotors[i] = Cuboid<double>(vertices);
+        this->rotors[i] = Cuboid(vertices);
     }
 }
 
-Drone::Drone(Vector<double, 3> translation) {
+Drone::Drone(vector3D translation) {
     *this = Drone();
     this->deck.translationByVector(translation);
     for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
@@ -58,8 +58,8 @@ Drone::Drone(Vector<double, 3> translation) {
 }
 
 void Drone::unitRotationOfRotors(){
-    Matrix3x3 left =Matrix3x3(2,'z');
-    Matrix3x3 right =Matrix3x3(-2,'z');
+    Matrix3x3 left = Matrix3x3(2,'z');
+    Matrix3x3 right = Matrix3x3(-2,'z');
 
     for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
         if(i % 2 == 0){
@@ -70,7 +70,7 @@ void Drone::unitRotationOfRotors(){
     }
 }
 
-const Cuboid<double> &Drone::operator[](int index) const {
+const Cuboid &Drone::operator[](int index) const {
     switch (index) {
         case 0:
             return this->rotors[0];
@@ -88,7 +88,7 @@ const Cuboid<double> &Drone::operator[](int index) const {
 }
 
 
-Cuboid<double> &Drone::operator[](int index) {
+Cuboid &Drone::operator[](int index) {
     switch (index) {
         case 0:
             return this->rotors[0];

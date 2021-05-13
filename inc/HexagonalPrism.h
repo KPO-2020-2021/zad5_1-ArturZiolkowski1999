@@ -4,7 +4,7 @@
 
 #ifndef DRONE_SCENE_HEXAGONALPRISM_H
 #define DRONE_SCENE_HEXAGONALPRISM_H
-class hexagonalPrism: public GeometricalBlock{
+class hexagonalPrism: public geometricalBlock{
 
 };
 #endif //DRONE_SCENE_HEXAGONALPRISM_H

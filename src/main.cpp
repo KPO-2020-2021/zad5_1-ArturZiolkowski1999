@@ -4,9 +4,9 @@
 #include <utility>
 #include "../inc/Matrix3x3.h"
 #include "Cuboid.h"
-#include "Vector.h"
+#include "Vector3D.h"
 #include "scene.h"
-#define Vector Vector<double, 3>
+#define Vector vector3D
 
 
 void menuDisplay();
@@ -15,40 +15,28 @@ void chooseIndex(scene &gnu);
 
 int main() {
     /* Initialize Cuboid and translation vector and axis*/
-    Vector Ver0 = Vector(0,1,1); Vector Ver1 = Vector(5,1,1);
-    Vector Ver2 = Vector(5,1,4); Vector Ver3 = Vector(0,1,4);
+    vector3D Ver0 = vector3D(0,1,1); vector3D Ver1 = vector3D(5,1,1);
+    vector3D Ver2 = vector3D(5,1,4); vector3D Ver3 = vector3D(0,1,4);
 
-    Vector Ver4 = Vector(0,3,1); Vector Ver5 = Vector(5,3,1);
-    Vector Ver6 = Vector(5,3,4); Vector Ver7 = Vector(0,3,4);
+    vector3D Ver4 = vector3D(0,3,1); vector3D Ver5 = vector3D(5,3,1);
+    vector3D Ver6 = vector3D(5,3,4); vector3D Ver7 = vector3D(0,3,4);
 
-    Vector tr1 = Vector(-5,-5,-5); Vector tr2 = Vector(5,-5,-5);
-    Vector tr3 = Vector(5,5,-5); Vector tr4 = Vector(5,5,5);
-
-    Vector vertices[VERTICES_NUMBER] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-
-    Vector vertices1[VERTICES_NUMBER] = {Ver0 + tr1, Ver1+ tr1, Ver2+ tr1, Ver3+ tr1,
-                                        Ver4+ tr1, Ver5+ tr1, Ver6+ tr1, Ver7+ tr1};
-
-    Vector vertices2[VERTICES_NUMBER] = {Ver0 + tr2, Ver1+ tr2, Ver2+ tr2, Ver3+ tr2,
-                                        Ver4+ tr2, Ver5+ tr2, Ver6+ tr2, Ver7+ tr2};
-
-    Vector vertices3[VERTICES_NUMBER] = {Ver0 + tr3, Ver1+ tr3, Ver2+ tr3, Ver3+ tr3,
-                                        Ver4+ tr3, Ver5+ tr3, Ver6+ tr3, Ver7+ tr3};
-
-    Vector vertices4[VERTICES_NUMBER] = {Ver0 + tr4, Ver1+ tr4, Ver2+ tr4, Ver3+ tr4,
-                                        Ver4+ tr4, Ver5+ tr4, Ver6+ tr4, Ver7+ tr4};
-
+    vector3D tr1 = vector3D(-5,-5,-5); vector3D tr2 = vector3D();
+    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
 
     /* Initialize "Lacze do gnuplota" to work with in class scene*/
-    double XRange[2] = {0, 200};
-    double YRange[2] = {0, 200};
-    double ZRange[2] = {0, 200};
+    double XRange[2] = {-20, 20};
+    double YRange[2] = {-20, 20};
+    double ZRange[2] = {-20, 20};
     scene gnu = scene(XRange, YRange, ZRange);
-    gnu.cub[0] = Cuboid<double>(vertices);
-    gnu.cub[1] = Cuboid<double>(vertices1);
-    gnu.cub[2] = Cuboid<double>(vertices2);
-    gnu.cub[3] = Cuboid<double>(vertices3);
-    gnu.cub[4] = Cuboid<double>(vertices4);
+    for (int t = 0; t < 5; t++){
+        for(int k = 0; k < VERTICES_NUMBER_OF_CUBOID; k++){
+            tr2 = tr1 * t;
+            vertices[k] = vertices[k] + tr2;
+        }
+        gnu.cub[t] = Cuboid(vertices);
+    }
+
     Ver6 =  Ver6 * -2;
     gnu.drone1 = Drone(Ver6);
 
@@ -142,7 +130,7 @@ void menuDisplay(){
 void getRotationMatrix(scene &gnu){
     char ch;
     bool fail = false;
-    Cuboid<double> oldCuboid = gnu.cub[gnu.chosenIndex];
+    Cuboid oldCuboid = gnu.cub[gnu.chosenIndex];
     gnu.rotMatrix = Matrix3x3();
     double degree;
     while(ch != '.'){
