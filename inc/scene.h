@@ -8,6 +8,7 @@
 #include "Drone.h"
 #include <lacze_do_gnuplota.hh>
 #include <fstream>
+#include "HexagonalPrism.h"
 
 class scene{
 private:
@@ -25,6 +26,8 @@ public:
     Matrix3x3 rotMatrix = Matrix3x3();
     vector3D translation;
     Cuboid cub[5];
+    HexagonalPrism hex;
+
     scene();
     scene(double _XRange[2], double _YRange[2], double _ZRange[2]);
     void drawScene();

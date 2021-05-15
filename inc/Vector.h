@@ -218,15 +218,12 @@ public:
     template<typename T, unsigned int dimension>
     std::istream &operator>>(std::istream &ist, Vector<T, dimension> &Vec) {
         T x, y, z;
-        std::cout << "enter x cord of vector:\n";
         ist >> x;
         Vec[0] = x;
         if (dimension < 2) return ist;
-        std::cout << "enter y cord of vector:\n";
         ist >> y;
         Vec[1] = y;
         if (dimension < 3) return ist;
-        std::cout << "enter z cord of vector:\n";
         ist >> z;
         Vec[2] = z;
         return ist;

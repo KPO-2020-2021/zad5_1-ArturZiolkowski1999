@@ -92,11 +92,19 @@ void scene::drawScene(){
         os.close();
     }
 
+    /* drawing hex*/
+    os.open(hex.getFileNameOfBlock());
+    if(!os){
+        throw std::exception();
+    }
+    os << hex;
+    os.close();
+
+    /* Drawing simple background */
     os.open(this->boardFileName);
     if(!os){
         throw std::exception();
     }
-
     for(int k = 0; k <= 200; k+= 10){
         for(int l = 0; l <= 200; l += 10){
         os << l << " " << k+10 << " 0\n";
@@ -108,8 +116,8 @@ void scene::drawScene(){
         }
         os << 0 << " " << k << " 0\n#\n\n";
     }
-
     os.close();
+
     GNU.Inicjalizuj();
     GNU.Rysuj();
 }

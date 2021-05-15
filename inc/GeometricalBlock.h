@@ -6,13 +6,18 @@
 #ifndef DRONE_SCENE_GEOMETRICALBLOCK_H
 #define DRONE_SCENE_GEOMETRICALBLOCK_H
 #include "Matrix3x3.h"
-class geometricalBloc{
+#include "Vector3D.h"
+#include "Constants.h"
+
+class GeometricalBloc{
 protected:
     std::string fileNameOfModel;
     std::string fileNameOfBlock;
+    Matrix3x3 orientation;
+    vector3D positionOfCenterOfMass;
 public:
-    geometricalBloc();
-    geometricalBloc(std::string fileNameOfModel, std::string fileNameOfBlock);
+    GeometricalBloc();
+    GeometricalBloc(std::string fileNameOfModel, std::string fileNameOfBlock);
     std::string getFileNameOfModel();
     std::string getFileNameOfBlock();
 };

@@ -2,20 +2,15 @@
 // Created by artur on 3/17/21.
 //
 
-
-
 #ifndef ROTATION3D_CUBOID_H
 #define ROTATION3D_CUBOID_H
 #include <iostream>
 #include <utility>
 #include <cmath>
 #include <float.h>
-#include "Matrix3x3.h"
 #include "GeometricalBlock.h"
-#include "Constants.h"
-#include "Vector3D.h"
 
-class Cuboid: public geometricalBloc{
+class Cuboid: public GeometricalBloc{
 protected:
     vector3D vertices[VERTICES_NUMBER_OF_CUBOID];
     double sidesLength[SIDES_NUMBER_OF_CUBOID];

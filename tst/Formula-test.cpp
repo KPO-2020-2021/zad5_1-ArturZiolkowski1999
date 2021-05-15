@@ -4,6 +4,7 @@
 #include <utility>
 #include "Drone.h"
 #include "Constants.h"
+#include "HexagonalPrism.h"
 
 
 
@@ -494,5 +495,19 @@ TEST (Drone, constructorsAndIndexing) {
         result.translationByVector(translation);
         EXPECT_EQ(drone2[i], result);
     }
+}
 
+TEST (Hex, constructorsAndIndexingAndReadModel) {
+
+    vector3D result = vector3D(-1, -1.73205080757, -0.5);
+    HexagonalPrism hex = HexagonalPrism("../../data/hexagonalPrismModel.txt");
+
+    EXPECT_EQ(hex[0], result);
+    result = vector3D(1, -1.73205080757, -0.5);
+    EXPECT_EQ(hex[1], result);
+    result = vector3D(2, 0, -0.5);
+    EXPECT_EQ(hex[2], result);
+
+    result = vector3D(-2, 0, 0.5);
+    EXPECT_EQ(hex[11], result);
 }

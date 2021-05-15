@@ -3,20 +3,24 @@
 //
 #include "GeometricalBlock.h"
 
-geometricalBloc::geometricalBloc() {
+GeometricalBloc::GeometricalBloc() {
     this -> fileNameOfBlock = "../data/filenameOfBlock";
     this -> fileNameOfModel = "../data/filenameOfModel";
+    this -> orientation = Matrix3x3();
+    this ->positionOfCenterOfMass = vector3D();
 }
 
-geometricalBloc::geometricalBloc(std::string fileNameOfModel, std::string fileNameOfBlock){
+GeometricalBloc::GeometricalBloc(std::string fileNameOfModel, std::string fileNameOfBlock){
     this -> fileNameOfModel = fileNameOfModel;
     this -> fileNameOfBlock = fileNameOfBlock;
+    this -> orientation = Matrix3x3();
+    this ->positionOfCenterOfMass = vector3D();
 }
 
-std::string geometricalBloc::getFileNameOfModel() {
+std::string GeometricalBloc::getFileNameOfModel() {
     return this->fileNameOfModel;
 }
 
-std::string geometricalBloc::getFileNameOfBlock() {
+std::string GeometricalBloc::getFileNameOfBlock() {
     return this->fileNameOfBlock;
 }
