@@ -9,7 +9,6 @@ HexagonalPrism::HexagonalPrism() {
     this -> fileNameOfBlock = "../data/data.txt";
     this -> orientation = Matrix3x3();
     this -> positionOfCenterOfMass = vector3D();
-    readModelVerticesPosition();
 }
 
 HexagonalPrism::HexagonalPrism(std::string fileNameOfModel, std::string fileNameOfBlock,
@@ -18,7 +17,6 @@ HexagonalPrism::HexagonalPrism(std::string fileNameOfModel, std::string fileName
     this -> fileNameOfBlock = fileNameOfBlock;
     this -> orientation = initialOrientation;
     this ->positionOfCenterOfMass = initialPosition;
-    readModelVerticesPosition();
 }
 
 std::ostream &operator<<(std::ostream &ost, HexagonalPrism &hex) {
@@ -162,6 +160,7 @@ void HexagonalPrism::translationByVector(vector3D vec) {
 }
 
 void HexagonalPrism::calculateActualPosition() {
+    readModelVerticesPosition();
     for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
         this->vertices[i] = this->orientation * (this->vertices[i]);
     }

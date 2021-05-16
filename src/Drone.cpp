@@ -5,8 +5,8 @@
 
 Drone::Drone() {
     Matrix3x3 initMat = Matrix3x3();
-    vector3D initVec = vector3D();
-    vector3D transInZ = vector3D(0,0,0.5);
+    vector3D initVec = vector3D(0,0,1);
+    vector3D transInZ = vector3D(0,0,1);
 
     this->deck = Cuboid("../data/cuboidModel.txt", "../data/deck.txt", initMat, initVec);
 
@@ -32,31 +32,32 @@ Drone::Drone(std::string fileNameOfDeck, std::string fileNameOfRotor0,
              std::string fileNameOfRotor1, std::string fileNameOfRotor2,
              std::string fileNameOfRotor3, vector3D initialTranslation, Matrix3x3 initialOrientation) {
 
-    Matrix3x3 initMat = initialOrientation;
+    Matrix3x3 initMat = initialOrientation;;
+    vector3D transInZ = vector3D(0,0,1);
     vector3D initVec = initialTranslation;
-    vector3D transInZ = vector3D(0,0,0.5);
 
     this->deck = Cuboid("../data/cuboidModel.txt", fileNameOfDeck, initMat, initVec);
-    this->deck.calculateActualPosition();
+    this->deck.readModelVerticesPosition();
 
     initVec = (this->deck)[3] + transInZ;
+    initVec = initVec + initialTranslation;
     this->rotors[0] = HexagonalPrism("../data/hexagonalPrismModel.txt",
                                      fileNameOfRotor0, initMat, initVec);
 
     initVec = (this->deck)[2] + transInZ;
+    initVec = initVec + initialTranslation;
     this->rotors[1] = HexagonalPrism("../data/hexagonalPrismModel.txt",
                                      fileNameOfRotor1, initMat, initVec);
-    this->rotors[1].calculateActualPosition();
 
     initVec = (this->deck)[6] + transInZ;
+    initVec = initVec + initialTranslation;
     this->rotors[2] = HexagonalPrism("../data/hexagonalPrismModel.txt",
                                      fileNameOfRotor2, initMat, initVec);
-    this->rotors[2].calculateActualPosition();
 
     initVec = (this->deck)[7] + transInZ;
+    initVec = initVec + initialTranslation;
     this->rotors[3] = HexagonalPrism("../data/hexagonalPrismModel.txt",
                                      fileNameOfRotor3, initMat, initVec);
-    this->rotors[3].calculateActualPosition();
 }
 //
 //void Drone::unitRotationOfRotors(){

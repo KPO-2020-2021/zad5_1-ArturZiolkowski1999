@@ -10,7 +10,6 @@ Cuboid::Cuboid() {
     this -> fileNameOfBlock = "../data/CuboidBlock.txt";
     this -> orientation = Matrix3x3();
     this -> positionOfCenterOfMass = vector3D();
-    readModelVerticesPosition();
 }
 
 
@@ -21,7 +20,6 @@ Cuboid::Cuboid(std::string fileNameOfModel, std::string fileNameOfBlock,
     this -> fileNameOfBlock = fileNameOfBlock;
     this -> orientation = initialOrientation;
     this ->positionOfCenterOfMass = initialPosition;
-    readModelVerticesPosition();
 }
 
 void Cuboid::readModelVerticesPosition() {
@@ -82,7 +80,7 @@ const vector3D &Cuboid::operator[](int index) const {
         case 0:
             return this->vertices[0];
         case 1:
-            return this->vertices[1];;
+            return this->vertices[1];
         case 2:
             return this->vertices[2];
         case 3:
@@ -106,7 +104,7 @@ vector3D &Cuboid::operator[](int index) {
         case 0:
             return this->vertices[0];
         case 1:
-            return this->vertices[1];;
+            return this->vertices[1];
         case 2:
             return this->vertices[2];
         case 3:
@@ -114,7 +112,7 @@ vector3D &Cuboid::operator[](int index) {
         case 4:
             return this->vertices[4];
         case 5:
-            return this->vertices[5];;
+            return this->vertices[5];
         case 6:
             return this->vertices[6];
         case 7:
@@ -226,6 +224,7 @@ vector3D Cuboid::getCenterOfMass() {
 
 
 void Cuboid::calculateActualPosition() {
+    readModelVerticesPosition();
     for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; ++i){
         this->vertices[i] = this->orientation * (this->vertices[i]);
     }

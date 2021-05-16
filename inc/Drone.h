@@ -9,7 +9,7 @@
 #include "Vector3D.h"
 
 class Drone{
-private:
+protected:
     Cuboid deck;
     HexagonalPrism rotors[NUMBER_OF_ROTORS];
 public:
