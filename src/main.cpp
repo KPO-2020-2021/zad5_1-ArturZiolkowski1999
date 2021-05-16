@@ -34,11 +34,11 @@ int main() {
             tr2 = tr1 * t;
             vertices[k] = vertices[k] + tr2;
         }
-        gnu.cub[t] = Cuboid(vertices);
+        gnu.cub[t] = Cuboid();
     }
 
     Ver6 =  Ver6 * -2;
-    gnu.drone1 = Drone(Ver6);
+    gnu.drone1 = Drone();
 
     /* Drawing initial rectangle and display menu*/
     menuDisplay();

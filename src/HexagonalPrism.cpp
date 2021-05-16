@@ -149,3 +149,24 @@ vector3D &HexagonalPrism::operator[](int index){
     }
 }
 
+void HexagonalPrism::rotationByMatrix(Matrix3x3 rotMatrix) {
+    for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
+        this->vertices[i] = rotMatrix * (this->vertices[i]);
+    }
+}
+
+void HexagonalPrism::translationByVector(vector3D vec) {
+    for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
+        this->vertices[i] = vec + (this->vertices[i]);
+    }
+}
+
+void HexagonalPrism::calculateActualPosition() {
+    for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
+        this->vertices[i] = this->orientation * (this->vertices[i]);
+    }
+
+    for(int j = 0; j < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++j){
+        this->vertices[j] = this->positionOfCenterOfMass + (this->vertices[j]);
+    }
+}

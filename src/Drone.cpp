@@ -4,73 +4,75 @@
 #include "Drone.h"
 
 Drone::Drone() {
-    double xMax = 3, xMin = -3, yMax = 3, yMin = -3, zMax = 1, zMin = -1;
+    Matrix3x3 initMat = Matrix3x3();
+    vector3D initVec = vector3D();
+    vector3D transInZ = vector3D(0,0,0.5);
 
-    vector3D Ver0 = vector3D(xMin,yMin,zMin);
-    vector3D Ver1 = vector3D(xMax,yMin,zMin);
-    vector3D Ver2 = vector3D(xMax,yMin,zMax);
-    vector3D Ver3 = vector3D(xMin,yMin,zMax);
+    this->deck = Cuboid("../data/cuboidModel.txt", "../data/deck.txt", initMat, initVec);
 
-    vector3D Ver4 = vector3D(xMin,yMax,zMin);
-    vector3D Ver5 = vector3D(xMax,yMax,zMin);
-    vector3D Ver6 = vector3D(xMax,yMax,zMax);
-    vector3D Ver7 = vector3D(xMin,yMax,zMax);
+    initVec = (this->deck)[3] + transInZ;
+    this->rotors[0] = HexagonalPrism("../data/hexagonalPrismModel.txt",
+                                     "../data/rotor0.txt", initMat, initVec);
+    this->rotors[0].readModelVerticesPosition();
 
-    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-    this->deck = Cuboid(vertices);
+    initVec = (this->deck)[2] + transInZ;
+    this->rotors[1] = HexagonalPrism("../data/hexagonalPrismModel.txt",
+                                     "../data/rotor1.txt", initMat, initVec);
 
-    for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
-        switch (i) {
-            case 0:
-                xMax = -2; xMin = -4; yMax = 4; yMin = 2; zMax = 2; zMin = 1.2;
-                break;
-            case 1:
-                xMax = 4; xMin = 2; yMax = 4; yMin = 2; zMax = 2; zMin = 1.2;
-                break;
-            case 2:
-                xMax = 4; xMin = 2; yMax = -2; yMin = -4; zMax = 2; zMin = 1.2;
-                break;
-            case 3:
-                xMax = -2; xMin = -4; yMax = -2; yMin = -4; zMax = 2; zMin = 1.2;
-                break;
-        }
-        Ver0 = vector3D(xMin,yMin,zMin);
-        Ver1 = vector3D(xMax,yMin,zMin);
-        Ver2 = vector3D(xMax,yMin,zMax);
-        Ver3 = vector3D(xMin,yMin,zMax);
-        Ver4 = vector3D(xMin,yMax,zMin);
-        Ver5 = vector3D(xMax,yMax,zMin);
-        Ver6 = vector3D(xMax,yMax,zMax);
-        Ver7 = vector3D(xMin,yMax,zMax);
+    initVec = (this->deck)[6] + transInZ;
+    this->rotors[2] = HexagonalPrism("../data/hexagonalPrismModel.txt",
+                                     "../data/rotor2.txt", initMat, initVec);
 
-        vertices[0] = Ver0; vertices[1] = Ver1; vertices[2] = Ver2; vertices[3] = Ver3,
-        vertices[4] = Ver4; vertices[5] = Ver5; vertices[6] = Ver6; vertices[7] = Ver7;
-        this->rotors[i] = Cuboid(vertices);
-    }
+    initVec = (this->deck)[7] + transInZ;
+    this->rotors[3] = HexagonalPrism("../data/hexagonalPrismModel.txt",
+                                     "../data/rotor3.txt", initMat, initVec);
 }
 
-Drone::Drone(vector3D translation) {
-    *this = Drone();
-    this->deck.translationByVector(translation);
-    for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
-        this->rotors[i].translationByVector(translation);
-    }
+Drone::Drone(std::string fileNameOfDeck, std::string fileNameOfRotor0,
+             std::string fileNameOfRotor1, std::string fileNameOfRotor2,
+             std::string fileNameOfRotor3, vector3D initialTranslation, Matrix3x3 initialOrientation) {
+
+    Matrix3x3 initMat = initialOrientation;
+    vector3D initVec = initialTranslation;
+    vector3D transInZ = vector3D(0,0,0.5);
+
+    this->deck = Cuboid("../data/cuboidModel.txt", fileNameOfDeck, initMat, initVec);
+    this->deck.calculateActualPosition();
+
+    initVec = (this->deck)[3] + transInZ;
+    this->rotors[0] = HexagonalPrism("../data/hexagonalPrismModel.txt",
+                                     fileNameOfRotor0, initMat, initVec);
+
+    initVec = (this->deck)[2] + transInZ;
+    this->rotors[1] = HexagonalPrism("../data/hexagonalPrismModel.txt",
+                                     fileNameOfRotor1, initMat, initVec);
+    this->rotors[1].calculateActualPosition();
+
+    initVec = (this->deck)[6] + transInZ;
+    this->rotors[2] = HexagonalPrism("../data/hexagonalPrismModel.txt",
+                                     fileNameOfRotor2, initMat, initVec);
+    this->rotors[2].calculateActualPosition();
+
+    initVec = (this->deck)[7] + transInZ;
+    this->rotors[3] = HexagonalPrism("../data/hexagonalPrismModel.txt",
+                                     fileNameOfRotor3, initMat, initVec);
+    this->rotors[3].calculateActualPosition();
 }
+//
+//void Drone::unitRotationOfRotors(){
+//    Matrix3x3 left = Matrix3x3(2,'z');
+//    Matrix3x3 right = Matrix3x3(-2,'z');
+//
+//    for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
+//        if(i % 2 == 0){
+//            this->rotors[i].rotationByMatrix(left);
+//        }else{
+//            this->rotors[i].rotationByMatrix(right);
+//        }
+//    }
+//}
 
-void Drone::unitRotationOfRotors(){
-    Matrix3x3 left = Matrix3x3(2,'z');
-    Matrix3x3 right = Matrix3x3(-2,'z');
-
-    for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
-        if(i % 2 == 0){
-            this->rotors[i].rotationByMatrix(left);
-        }else{
-            this->rotors[i].rotationByMatrix(right);
-        }
-    }
-}
-
-const Cuboid &Drone::operator[](int index) const {
+const HexagonalPrism &Drone::operator[](int index) const {
     switch (index) {
         case 0:
             return this->rotors[0];
@@ -80,15 +82,13 @@ const Cuboid &Drone::operator[](int index) const {
             return this->rotors[2];
         case 3:
             return this->rotors[3];
-        case 4:
-            return this->deck;
         default:
             throw std::invalid_argument("index out of range");
     }
 }
 
 
-Cuboid &Drone::operator[](int index) {
+HexagonalPrism &Drone::operator[](int index) {
     switch (index) {
         case 0:
             return this->rotors[0];
@@ -98,9 +98,17 @@ Cuboid &Drone::operator[](int index) {
             return this->rotors[2];
         case 3:
             return this->rotors[3];
-        case 4:
-            return this->deck;
         default:
             throw std::invalid_argument("index out of range");
+    }
+}
+Cuboid Drone::getDeck() {
+    return this->deck;
+}
+
+void Drone::calculatePosition() {
+    this->deck.calculateActualPosition();
+    for(int i = 0 ; i < NUMBER_OF_ROTORS; ++i){
+        this->rotors[i].calculateActualPosition();
     }
 }

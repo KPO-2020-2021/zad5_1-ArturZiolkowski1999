@@ -21,6 +21,9 @@ public:
     void readModelVerticesPosition();
     const vector3D & operator[](int index) const;
     vector3D & operator[](int index);
+    void calculateActualPosition();
+    void rotationByMatrix(Matrix3x3 rotMatrix);
+    void translationByVector(vector3D vec);
 
 };
 #endif //DRONE_SCENE_HEXAGONALPRISM_H

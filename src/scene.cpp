@@ -53,13 +53,18 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
                 .ZmienSzerokosc(1)
                 .ZmienKolor(i + 1);
     }
-
-    for( int i = 0; i < 5; ++i){
-        GNU.DodajNazwePliku(this->drone1FileName[i].c_str())
+    /* rotors file*/
+    for( int i = 0; i < NUMBER_OF_ROTORS; ++i){
+        GNU.DodajNazwePliku(this->drone1[i].getFileNameOfBlock().c_str())
                 .ZmienSposobRys(PzG::SR_Ciagly)
                 .ZmienSzerokosc(1)
                 .ZmienKolor(2);
     }
+    /* deck file */
+    GNU.DodajNazwePliku(this->drone1.getDeck().getFileNameOfBlock().c_str())
+            .ZmienSposobRys(PzG::SR_Ciagly)
+            .ZmienSzerokosc(1)
+            .ZmienKolor(2);
 
     GNU.DodajNazwePliku(this->boardFileName.c_str())
             .ZmienSposobRys(PzG::SR_Ciagly)
@@ -83,15 +88,26 @@ void scene::drawScene(){
         os.close();
     }
 
-    for(int i = 0; i < 5; i++){
-        os.open(this->drone1FileName[i]);
-        if(!os){
+    this->drone1.calculatePosition();
+    /* Draw deck of drone1*/
+    os.open(this->drone1.getDeck().getFileNameOfBlock());
+    if(!os) {
+        throw std::exception();
+    }
+    Cuboid deck = this->drone1.getDeck();
+    os << deck;
+    os.close();
+    /* Draw rotors*/
+    HexagonalPrism rotor;
+    for(int h = 0; h < NUMBER_OF_ROTORS; ++h){
+        os.open(this->drone1[h].getFileNameOfBlock());
+        if(!os) {
             throw std::exception();
         }
-        os << drone1[i];
+        rotor = this->drone1[h];
+        os << rotor;
         os.close();
     }
-
     /* drawing hex*/
     os.open(hex.getFileNameOfBlock());
     if(!os){

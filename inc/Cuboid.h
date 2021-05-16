@@ -8,7 +8,9 @@
 #include <utility>
 #include <cmath>
 #include <float.h>
+#include <fstream>
 #include "GeometricalBlock.h"
+#include "sstream"
 
 class Cuboid: public GeometricalBloc{
 protected:
@@ -22,8 +24,11 @@ protected:
     vector3D calculateCenterOfMass();
 public:
     Cuboid();
-    Cuboid(vector3D *ver);
+    Cuboid(std::string fileNameOfModel, std::string fileNameOfBlock = "../data/CuboidBlock.txt",
+           Matrix3x3 initialOrientation = Matrix3x3(), vector3D initialPosition = vector3D());
     /* Set all parameters strictly */
+    void readModelVerticesPosition();
+    void calculateActualPosition();
 
     friend bool operator==(const Cuboid &cub1, const Cuboid &cub2);
     void translationByVector(vector3D &Vec);

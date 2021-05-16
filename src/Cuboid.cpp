@@ -6,34 +6,44 @@
 
 
 Cuboid::Cuboid() {
-    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; i++){
-        this->vertices[i] = vector3D();
-    }
+    this -> fileNameOfModel = "../data/CuboidModel.txt";
+    this -> fileNameOfBlock = "../data/CuboidBlock.txt";
+    this -> orientation = Matrix3x3();
+    this -> positionOfCenterOfMass = vector3D();
+    readModelVerticesPosition();
 }
 
 
-Cuboid::Cuboid(vector3D *ver){
+Cuboid::Cuboid(std::string fileNameOfModel, std::string fileNameOfBlock,
+               Matrix3x3 initialOrientation, vector3D initialPosition){
 
+    this -> fileNameOfModel = fileNameOfModel;
+    this -> fileNameOfBlock = fileNameOfBlock;
+    this -> orientation = initialOrientation;
+    this ->positionOfCenterOfMass = initialPosition;
+    readModelVerticesPosition();
+}
+
+void Cuboid::readModelVerticesPosition() {
 // VERTICES_NUMBER have to be equal 8; there is no sort of vertices
 //  Front  | Back <- vertices number
 //  3   2  | 7   6
 //  0   1  | 4   5
 //
+    std::string tmp;
+    std::stringstream ss;
+    int i = 0;
+    std::ifstream is;
+    is.open(this->fileNameOfModel);
 
-    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; i++){
-        this->vertices[i] = ver[i];
-        for(int j = 0; j < VERTICES_NUMBER_OF_CUBOID; j++){
-            if(i != j){
-                if(ver[i] == ver[j]){
-                    throw std::invalid_argument("one or more vertices is the same in cuboid");
-                }
-            }
-        }
+    while(getline(is, tmp)){
+        ss << tmp;
+        ss >> this->vertices[i];
+        i++;
+        ss = std::stringstream();
     }
-    calculateCenterOfMass();
-    calculateSidesLength();
+    is.close();
 }
-
 
 bool operator==(const Cuboid &cub1, const Cuboid &cub2){
     if(
@@ -52,29 +62,18 @@ bool operator==(const Cuboid &cub1, const Cuboid &cub2){
 
 
 void Cuboid::translationByVector(vector3D &Vec){
-    this->vertices[0] = Vec + (this->vertices[0]);
-    this->vertices[1] = Vec + (this->vertices[1]);
-    this->vertices[2] = Vec + (this->vertices[2]);
-    this->vertices[3] = Vec + (this->vertices[3]);
-    this->vertices[4] = Vec + (this->vertices[4]);
-    this->vertices[5] = Vec + (this->vertices[5]);
-    this->vertices[6] = Vec + (this->vertices[6]);
-    this->vertices[7] = Vec + (this->vertices[7]);
-    calculateCenterOfMass();
+
+    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; ++i){
+        this->vertices[i] = Vec + (this->vertices[i]);
+    }
 }
 
 
 void Cuboid::rotationByMatrix(const Matrix3x3 &rotMatrix){
 
-    this->vertices[0] = rotMatrix * (this->vertices[0]);
-    this->vertices[1] = rotMatrix * (this->vertices[1]);
-    this->vertices[2] = rotMatrix * (this->vertices[2]);
-    this->vertices[3] = rotMatrix * (this->vertices[3]);
-    this->vertices[4] = rotMatrix * (this->vertices[4]);
-    this->vertices[5] = rotMatrix * (this->vertices[5]);
-    this->vertices[6] = rotMatrix * (this->vertices[6]);
-    this->vertices[7] = rotMatrix * (this->vertices[7]);
-    calculateCenterOfMass();
+    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; ++i){
+        this->vertices[i] = rotMatrix * (this->vertices[i]);
+    }
 }
 
 
@@ -226,3 +225,12 @@ vector3D Cuboid::getCenterOfMass() {
 }
 
 
+void Cuboid::calculateActualPosition() {
+    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; ++i){
+        this->vertices[i] = this->orientation * (this->vertices[i]);
+    }
+
+    for(int j = 0; j < VERTICES_NUMBER_OF_CUBOID; ++j){
+        this->vertices[j] = this->positionOfCenterOfMass + (this->vertices[j]);
+    }
+}
