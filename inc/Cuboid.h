@@ -14,6 +14,8 @@ class Cuboid: public GeometricalBloc{
 protected:
     vector3D vertices[VERTICES_NUMBER_OF_CUBOID];
     double sidesLength[SIDES_NUMBER_OF_CUBOID];
+
+
     vector3D centerOfMass;
     /*! Simple sort algorithm looks the further and the closer vertices, and
      * return center of mass vector */

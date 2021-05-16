@@ -24,3 +24,26 @@ std::string GeometricalBloc::getFileNameOfModel() {
 std::string GeometricalBloc::getFileNameOfBlock() {
     return this->fileNameOfBlock;
 }
+
+vector3D GeometricalBloc::getPosition() {
+    return this->positionOfCenterOfMass;
+}
+
+Matrix3x3 GeometricalBloc::getOrientation() {
+    return this->orientation;
+}
+
+GeometricalBloc &GeometricalBloc::operator+=(vector3D vec) {
+    this->positionOfCenterOfMass = this->positionOfCenterOfMass + vec;
+    return *this;
+}
+
+GeometricalBloc &GeometricalBloc::operator*=(Matrix3x3 rotMat) {
+    this->orientation = rotMat * this->orientation;
+    return *this;
+}
+
+GeometricalBloc &GeometricalBloc::operator-=(vector3D vec) {
+    this->positionOfCenterOfMass = this->positionOfCenterOfMass - vec;
+    return *this;
+}

@@ -511,3 +511,21 @@ TEST (Hex, constructorsAndIndexingAndReadModel) {
     result = vector3D(-2, 0, 0.5);
     EXPECT_EQ(hex[11], result);
 }
+
+TEST (Hex, TestOperatorPlusEQualAndMultiplyEqual) {
+
+    vector3D tr = vector3D(1, 2, 3);
+    Matrix3x3 A = Matrix3x3(90, 'x');
+    Matrix3x3 B = Matrix3x3(90, 'y');
+    HexagonalPrism hex = HexagonalPrism("../../data/hexagonalPrismModel.txt");
+    hex += tr;
+    hex *= A;
+    EXPECT_EQ(hex.getOrientation(), A);
+    EXPECT_EQ(hex.getPosition(), tr);
+    hex += tr;
+    hex *= B;
+    tr = tr + tr;
+    A = B * A;
+    EXPECT_EQ(hex.getOrientation(), A);
+    EXPECT_EQ(hex.getPosition(), tr);
+}

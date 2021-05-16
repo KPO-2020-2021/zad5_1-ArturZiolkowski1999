@@ -118,8 +118,7 @@ const vector3D &HexagonalPrism::operator[](int index) const {
     }
 }
 
-
-vector3D &HexagonalPrism::operator[](int index) {
+vector3D &HexagonalPrism::operator[](int index){
     switch (index) {
         case 0:
             return this->vertices[0];
@@ -149,3 +148,4 @@ vector3D &HexagonalPrism::operator[](int index) {
             throw std::invalid_argument("index out of range");
     }
 }
+
