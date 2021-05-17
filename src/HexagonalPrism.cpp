@@ -183,6 +183,4 @@ void HexagonalPrism::calculateActualPosition(vector3D posOfDeck) {
         this->vertices[i] = this->vertices[i] + posOfDeck;
     }
 
-
-
 }

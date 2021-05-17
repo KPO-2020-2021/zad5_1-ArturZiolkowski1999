@@ -28,8 +28,8 @@ int main() {
     gnu.drawScene();
 
     double lengthOfFlight; double angleOfFlight;
-    vector3D targetPosFromDroneCenter;
-    Matrix3x3 targetOrient;
+//    vector3D targetPosFromDroneCenter;
+//    Matrix3x3 targetOrient;
     int droneIndex;
     char c = ' ';
     while(c != 'k'){
@@ -69,14 +69,17 @@ int main() {
                 std::cin >> angleOfFlight;
                 std::cout << "give length of flight in degree\n";
                 std::cin >> lengthOfFlight;
-                targetOrient = Matrix3x3(angleOfFlight, 'z');
-                gnu[gnu.getIndex()].rotateDrone(targetOrient);
-                /* create vector of proper len but only x cord*/
-                targetPosFromDroneCenter = vector3D(lengthOfFlight,0,0);
-                /* rotating this vec by orientation of drone*/
-                targetPosFromDroneCenter = gnu[gnu.getIndex()].getDeck().getOrientation() * targetPosFromDroneCenter;
-                /* translate drone by this vec*/
-                gnu[gnu.getIndex()].translateDrone(targetPosFromDroneCenter);
+
+                gnu.animateDroneTranslation(angleOfFlight, lengthOfFlight);
+
+//                targetOrient = Matrix3x3(angleOfFlight, 'z');
+//                gnu[gnu.getIndex()].rotateDrone(targetOrient);
+//                /* create vector of proper len but only x cord*/
+//                targetPosFromDroneCenter = vector3D(lengthOfFlight,0,0);
+//                /* rotating this vec by orientation of drone*/
+//                targetPosFromDroneCenter = gnu[gnu.getIndex()].getDeck().getOrientation() * targetPosFromDroneCenter;
+//                /* translate drone by this vec*/
+//                gnu[gnu.getIndex()].translateDrone(targetPosFromDroneCenter);
 
                 /*updating scene */
                 gnu[gnu.getIndex()].calculatePosition();

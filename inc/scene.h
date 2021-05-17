@@ -26,6 +26,7 @@ public:
     scene();
     scene(double _XRange[2], double _YRange[2], double _ZRange[2]);
     void drawScene();
+    void animateDroneTranslation(double angleOfFlight, double lengthOfFlight);
 //    void animateRotateCuboid(double &degree, char &axis);
 //    void animateTranslateRectangle();
 //    void rotateByAmountOfRotation(int amountOfRotation);

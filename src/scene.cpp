@@ -243,4 +243,32 @@ Matrix3x3 scene::getRotation() {
     return this->rotMatrix;
 }
 
+void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight) {
 
+    vector3D targetPosFromDroneCenter;
+    vector3D unitTargetPos;
+    vector3D animateVector;
+    Matrix3x3 targetOrient = Matrix3x3(angleOfFlight, 'z');
+    drone[chosenIndex].rotateDrone(targetOrient);
+    /* create vector of proper len but only x cord*/
+    targetPosFromDroneCenter = vector3D(lengthOfFlight,0,0);
+    /* rotating this vec by orientation of drone*/
+    targetPosFromDroneCenter = drone[chosenIndex].getDeck().getOrientation() * targetPosFromDroneCenter;
+    /* creating auxiliary vectors */
+    unitTargetPos = targetPosFromDroneCenter / targetPosFromDroneCenter.getLength();
+    animateVector = unitTargetPos;
+    while(animateVector.getLength() < targetPosFromDroneCenter.getLength()){
+        drone[chosenIndex].translateDrone(unitTargetPos);
+        animateVector = animateVector + unitTargetPos;
+        drone[chosenIndex].calculatePosition();
+        drawScene();
+        usleep(ANIMATION_SPEED);
+    }
+    animateVector = animateVector * -1;
+    drone[chosenIndex].translateDrone(animateVector);
+    /* translate drone by this vec*/
+    drone[chosenIndex].translateDrone(targetPosFromDroneCenter);
+    drone[chosenIndex].calculatePosition();
+    drawScene();
+
+}
