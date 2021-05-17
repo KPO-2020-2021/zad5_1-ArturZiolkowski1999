@@ -23,6 +23,8 @@ public:
     HexagonalPrism & operator[](int index);
     Cuboid getDeck();
     void calculatePosition();
+    void rotateDrone(Matrix3x3 rotMatrix);
+    void translateDrone(vector3D vec);
 };
 
 #endif //DRONE_SCENE_DRONE_H

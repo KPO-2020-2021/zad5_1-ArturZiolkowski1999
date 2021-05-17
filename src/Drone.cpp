@@ -110,6 +110,55 @@ Cuboid Drone::getDeck() {
 void Drone::calculatePosition() {
     this->deck.calculateActualPosition();
     for(int i = 0 ; i < NUMBER_OF_ROTORS; ++i){
-        this->rotors[i].calculateActualPosition();
+        this->rotors[i].calculateActualPosition(this->deck.getPosition());
+    }
+}
+
+void Drone::rotateDrone(Matrix3x3 rotMatrix) {
+
+    Matrix3x3 orient;
+    vector3D pos;
+    vector3D posOfDeck = this->deck.getPosition();
+    /*translate rotors to deck cords*/
+//    for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
+//        pos = this->rotors[i].getPosition();
+//        pos = pos - posOfDeck;
+//        this->rotors[i].setPosition(pos);
+//    }
+//    calculatePosition();
+
+/*rotate deck has to be before rotors*/
+    orient = (this->deck.getOrientation());
+    orient = rotMatrix * orient;
+    this->deck.setOrientation(orient);
+
+
+    /*rotate rotors*/
+    for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
+        orient = this->rotors[i].getOrientation();
+        orient = rotMatrix * orient;
+        this->rotors[i].setOrientation(orient);
+    }
+//    calculatePosition();
+//    /*translate rotors back */
+//    for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
+//        pos = this->rotors[i].getPosition();
+//        pos = pos + posOfDeck;
+//        this->rotors[i].setPosition(pos);
+//    }
+//    calculatePosition();
+
+
+
+}
+
+void Drone::translateDrone(vector3D vec) {
+    vector3D pos = (this->deck.getPosition());
+    pos = pos + vec;
+    this->deck.setPosition(pos);
+    for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
+        pos = (this->rotors[i].getPosition());
+        pos = pos + vec;
+        this->rotors[i].setPosition(pos);
     }
 }

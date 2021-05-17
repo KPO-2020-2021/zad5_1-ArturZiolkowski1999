@@ -208,21 +208,6 @@ double Cuboid::getSideLength(unsigned int index) {
 }
 
 
-vector3D Cuboid::calculateCenterOfMass() {
-
-    this->centerOfMass = this->vertices[6] - this->vertices[0];
-    this->centerOfMass = this->centerOfMass/2;
-    this->centerOfMass = this->centerOfMass + this->vertices[0];
-
-    return this->centerOfMass;
-}
-
-
-vector3D Cuboid::getCenterOfMass() {
-    return this->centerOfMass;
-}
-
-
 void Cuboid::calculateActualPosition() {
     readModelVerticesPosition();
     for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; ++i){

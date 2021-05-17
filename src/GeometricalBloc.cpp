@@ -47,3 +47,11 @@ GeometricalBloc &GeometricalBloc::operator-=(vector3D vec) {
     this->positionOfCenterOfMass = this->positionOfCenterOfMass - vec;
     return *this;
 }
+
+void GeometricalBloc::setOrientation(Matrix3x3 orient) {
+    this->orientation =orient;
+}
+
+void GeometricalBloc::setPosition(vector3D pos) {
+    this->positionOfCenterOfMass = pos;
+}

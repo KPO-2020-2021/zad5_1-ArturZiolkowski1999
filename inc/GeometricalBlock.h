@@ -22,8 +22,13 @@ public:
     std::string getFileNameOfBlock();
     vector3D getPosition();
     Matrix3x3 getOrientation();
+    void setOrientation(Matrix3x3 orient);
+    void setPosition(vector3D pos);
     GeometricalBloc &operator+=(vector3D vec);
     GeometricalBloc &operator-=(vector3D vec);
     GeometricalBloc &operator*=(Matrix3x3 rotMat);
 };
+
+
+
 #endif //DRONE_SCENE_GEOMETRICALBLOCK_H

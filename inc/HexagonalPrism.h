@@ -21,7 +21,7 @@ public:
     void readModelVerticesPosition();
     const vector3D & operator[](int index) const;
     vector3D & operator[](int index);
-    void calculateActualPosition();
+    void calculateActualPosition(vector3D posOfDeck);
     void rotationByMatrix(Matrix3x3 rotMatrix);
     void translationByVector(vector3D vec);
 

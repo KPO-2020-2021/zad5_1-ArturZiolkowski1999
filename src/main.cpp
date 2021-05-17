@@ -27,7 +27,10 @@ int main() {
     menuDisplay();
     gnu.drawScene();
 
-
+    double lengthOfFlight; double angleOfFlight;
+    vector3D targetPosFromDroneCenter;
+    Matrix3x3 targetOrient;
+    int droneIndex;
     char c = ' ';
     while(c != 'k'){
         gnu.drawScene();
@@ -38,6 +41,47 @@ int main() {
             case 'm':
                 menuDisplay();
                 break;
+            case 'a':
+                if(gnu.getIndex() == 0){
+                    std::cout << "position of Drone 0: (" << gnu[0].getDeck().getPosition()[0]
+                    << ", " << gnu[0].getDeck().getPosition()[1] <<") <- active\n";
+
+                    std::cout << "position of Drone 1: (" << gnu[1].getDeck().getPosition()[0]
+                    << ", " << gnu[1].getDeck().getPosition()[1] <<")\n";;
+                }else if(gnu.getIndex() == 1){
+                    std::cout << "position of Drone 0: (" << gnu[0].getDeck().getPosition()[0]
+                              << ", " << gnu[0].getDeck().getPosition()[1] <<")\n";
+
+                    std::cout << "position of Drone 1: (" << gnu[1].getDeck().getPosition()[0]
+                              << ", " << gnu[1].getDeck().getPosition()[1] <<") <- active\n";;
+                }else{
+                    throw std::invalid_argument("Unknown drone is chosen");
+                }
+                    std::cout << "Give doron index (from 0 to 1)\n";
+                    std::cin >> droneIndex;
+                    if(droneIndex != 0 && droneIndex != 1){
+                        throw std::invalid_argument("Unknown drone is chosen");
+                    }
+                    gnu.setIndex(droneIndex);
+                break;
+            case 'p':
+                std::cout << "give target angle in degree\n";
+                std::cin >> angleOfFlight;
+                std::cout << "give length of flight in degree\n";
+                std::cin >> lengthOfFlight;
+                targetOrient = Matrix3x3(angleOfFlight, 'z');
+                gnu[gnu.getIndex()].rotateDrone(targetOrient);
+                /* create vector of proper len but only x cord*/
+                targetPosFromDroneCenter = vector3D(lengthOfFlight,0,0);
+                /* rotating this vec by orientation of drone*/
+                targetPosFromDroneCenter = gnu[gnu.getIndex()].getDeck().getOrientation() * targetPosFromDroneCenter;
+                /* translate drone by this vec*/
+                gnu[gnu.getIndex()].translateDrone(targetPosFromDroneCenter);
+
+                /*updating scene */
+                gnu[gnu.getIndex()].calculatePosition();
+                gnu.drawScene();
+
 //            case 'o':
 //                chooseIndex(gnu);
 //                gnu.rotMatrix = Matrix3x3();
@@ -79,14 +123,11 @@ int main() {
 }
 
 void menuDisplay(){
-  std::cout << "o - rotate rectangle by angle in degree\n";
-  std::cout << "p - translate rectangle by vector\n";
-  std::cout << "w - display coordinates of rectangle vertices\n";
+  std::cout << "a - chose index of drone (0 or 1)\n";
+  std::cout << "p - chose target position of chosen drone\n";
   std::cout << "m - display menu\n";
   std::cout << "k - close\n";
-  std::cout << "l - display length of sides\n";
-  std::cout << "r - display last rotational matrix\n";
-  std::cout << "t - repeat the last rotation\n";
+
 }
 
 //void getRotationMatrix(scene &gnu){

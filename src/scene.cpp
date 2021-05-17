@@ -12,6 +12,8 @@ scene::scene() {
     this->YRange[0] = 0;
     this->YRange[1] = 0;
 
+    this->chosenIndex = 0;
+
     vector3D initialPosDrone0 = vector3D(0,0,0.5);
     vector3D initialPosDrone1 = vector3D(10,10,0.5);
     Matrix3x3 initialOrientation = Matrix3x3();
@@ -207,3 +209,38 @@ Drone &scene::operator[](int index) {
             throw std::invalid_argument("index out of range");
     }
 }
+
+int scene::getIndex() {
+    return this->chosenIndex;
+}
+
+void scene::setIndex(int index) {
+    switch (index) {
+        case 0:
+            this->chosenIndex = 0;
+            break;
+        case 1:
+            this->chosenIndex = 1;
+            break;
+        default:
+            throw std::invalid_argument("index out of range :(");
+    }
+}
+
+void scene::setTranslation(vector3D translation) {
+    this->translation = translation;
+}
+
+vector3D scene::getTranslation() {
+    return this->translation;
+}
+
+void scene::setRotation(Matrix3x3 rotMatrix) {
+    this->rotMatrix = rotMatrix;
+}
+
+Matrix3x3 scene::getRotation() {
+    return this->rotMatrix;
+}
+
+

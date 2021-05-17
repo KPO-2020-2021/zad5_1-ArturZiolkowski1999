@@ -159,13 +159,30 @@ void HexagonalPrism::translationByVector(vector3D vec) {
     }
 }
 
-void HexagonalPrism::calculateActualPosition() {
+void HexagonalPrism::calculateActualPosition(vector3D posOfDeck) {
     readModelVerticesPosition();
-    for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
-        this->vertices[i] = this->orientation * (this->vertices[i]);
-    }
 
+    vector3D posInDeckCords = this->positionOfCenterOfMass;
+    posInDeckCords =  posOfDeck;
+    /*translate to target position */
     for(int j = 0; j < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++j){
         this->vertices[j] = this->positionOfCenterOfMass + (this->vertices[j]);
     }
+
+    /*translate vertices to deck cord system */
+    for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
+        this->vertices[i] = this->vertices[i] - posOfDeck;
+    }
+    /* rotate vertices in proper cord system */
+    for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
+
+        this->vertices[i] = this->orientation * (this->vertices[i]);
+    }
+    /*translate vertices back to main cord system */
+    for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
+        this->vertices[i] = this->vertices[i] + posOfDeck;
+    }
+
+
+
 }

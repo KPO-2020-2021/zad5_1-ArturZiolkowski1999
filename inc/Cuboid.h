@@ -17,11 +17,6 @@ protected:
     vector3D vertices[VERTICES_NUMBER_OF_CUBOID];
     double sidesLength[SIDES_NUMBER_OF_CUBOID];
 
-
-    vector3D centerOfMass;
-    /*! Simple sort algorithm looks the further and the closer vertices, and
-     * return center of mass vector */
-    vector3D calculateCenterOfMass();
 public:
     Cuboid();
     Cuboid(std::string fileNameOfModel, std::string fileNameOfBlock = "../data/CuboidBlock.txt",
@@ -38,9 +33,9 @@ public:
     vector3D & operator[](int index);
 
     friend std::ostream & operator<<(std::ostream & ost, Cuboid &cub);
+
     double getSideLength(unsigned int index);
     void calculateSidesLength();
-    vector3D getCenterOfMass();
 };
 
 #endif //ROTATION3D_CUBOID_H
