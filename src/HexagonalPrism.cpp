@@ -162,8 +162,6 @@ void HexagonalPrism::translationByVector(vector3D vec) {
 void HexagonalPrism::calculateActualPosition(vector3D posOfDeck) {
     readModelVerticesPosition();
 
-    vector3D posInDeckCords = this->positionOfCenterOfMass;
-    posInDeckCords =  posOfDeck;
     /*translate to target position */
     for(int j = 0; j < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++j){
         this->vertices[j] = this->positionOfCenterOfMass + (this->vertices[j]);
@@ -182,5 +180,25 @@ void HexagonalPrism::calculateActualPosition(vector3D posOfDeck) {
     for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
         this->vertices[i] = this->vertices[i] + posOfDeck;
     }
-
 }
+
+//void HexagonalPrism::singleRotate(const Matrix3x3 &singleRot) {
+//
+///* moving rotor to main cord system*/
+//    for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
+//        this->vertices[i] = (this->vertices[i]) - this->positionOfCenterOfMass;
+//    }
+//    /*rotating rotor*/
+//    for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
+//        this->vertices[i] = singleRot * (this->vertices[i]);
+//    }
+//    /* moving rotor back*/
+//    for(int i = 0; i < VERTICES_NUMBER_OF_HEXAGONAL_PRISM; ++i){
+//        this->vertices[i] = (this->vertices[i]) + this->positionOfCenterOfMass;
+//    }
+//
+//    /* calculate new center of mass position*/
+//    this->positionOfCenterOfMass = this->vertices[11] - this->vertices[2];
+//    this->positionOfCenterOfMass = this->positionOfCenterOfMass/2;
+//    this->positionOfCenterOfMass = this->positionOfCenterOfMass + this->vertices[2];
+//}

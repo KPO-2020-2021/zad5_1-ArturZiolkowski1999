@@ -25,6 +25,7 @@ public:
     void calculatePosition();
     void rotateDrone(Matrix3x3 rotMatrix);
     void translateDrone(vector3D vec);
+    void rotateRotors(const Matrix3x3 &rotLeft,const Matrix3x3 &rotRight, const int &numberOfRotation);
 };
 
 #endif //DRONE_SCENE_DRONE_H

@@ -15,5 +15,6 @@ const int SIDES_NUMBER_OF_CUBOID = 12;
 const double MIN_THRESHOLD = 0.000001;
 const int NUMBER_OF_ROTORS = 4;
 const int NUMBER_OF_DRONES = 2;
+const int ALTITUDE_OF_FLIGHT = 30;
 
 #endif //ROTATION2D_CONSTANS_H

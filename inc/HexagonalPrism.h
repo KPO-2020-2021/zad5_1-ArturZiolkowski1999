@@ -22,6 +22,7 @@ public:
     const vector3D & operator[](int index) const;
     vector3D & operator[](int index);
     void calculateActualPosition(vector3D posOfDeck);
+//    void singleRotate(const Matrix3x3 &singleRot);
     void rotationByMatrix(Matrix3x3 rotMatrix);
     void translationByVector(vector3D vec);
 

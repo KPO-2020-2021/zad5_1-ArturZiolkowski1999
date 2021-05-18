@@ -38,6 +38,7 @@ public:
     vector3D getTranslation();
     void setRotation(Matrix3x3 rotMatrix);
     Matrix3x3 getRotation();
+    void animateUpwardsMovement(char direction);
 };
 
 #endif //ROTATION3D_GNUPLOTDRAWINGS_H

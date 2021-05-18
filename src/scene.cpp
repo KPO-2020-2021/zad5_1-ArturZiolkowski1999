@@ -86,7 +86,7 @@ void scene::drawScene(){
     HexagonalPrism rotor;
     Cuboid deck;
     for(int f = 0; f < NUMBER_OF_DRONES; ++f){
-        this->drone[f].calculatePosition();
+//        this->drone[f].calculatePosition();
         /* Draw deck of drone[f]*/
         os.open(this->drone[f].getDeck().getFileNameOfBlock());
         if(!os) {
@@ -244,25 +244,37 @@ Matrix3x3 scene::getRotation() {
 }
 
 void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight) {
-
     vector3D targetPosFromDroneCenter;
     vector3D unitTargetPos;
     vector3D animateVector;
     Matrix3x3 targetOrient = Matrix3x3(angleOfFlight, 'z');
+
+    /*animate rotation*/
     drone[chosenIndex].rotateDrone(targetOrient);
+
+    /*translate upwards */
+    animateUpwardsMovement('u');
+
     /* create vector of proper len but only x cord*/
     targetPosFromDroneCenter = vector3D(lengthOfFlight,0,0);
     /* rotating this vec by orientation of drone*/
     targetPosFromDroneCenter = drone[chosenIndex].getDeck().getOrientation() * targetPosFromDroneCenter;
     /* creating auxiliary vectors */
     unitTargetPos = targetPosFromDroneCenter / targetPosFromDroneCenter.getLength();
+    unitTargetPos = unitTargetPos * 2;
     animateVector = unitTargetPos;
     while(animateVector.getLength() < targetPosFromDroneCenter.getLength()){
-        drone[chosenIndex].translateDrone(unitTargetPos);
         animateVector = animateVector + unitTargetPos;
+        drone[chosenIndex].translateDrone(unitTargetPos);
         drone[chosenIndex].calculatePosition();
-        drawScene();
-        usleep(ANIMATION_SPEED);
+        /* animating rotation of rotors */
+        /* 12 * 5 = 60 -> its important */
+        for(int i = 0; i < 12; ++i){
+            drone[chosenIndex].rotateRotors(Matrix3x3(5, 'z'),Matrix3x3(-5, 'z'), i);
+//            usleep(ANIMATION_SPEED);
+            drawScene();
+        }
+
     }
     animateVector = animateVector * -1;
     drone[chosenIndex].translateDrone(animateVector);
@@ -271,4 +283,45 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
     drone[chosenIndex].calculatePosition();
     drawScene();
 
+    /*translate downwards */
+    animateUpwardsMovement('d');
 }
+
+void scene::animateUpwardsMovement(char direction) {
+    vector3D targetPosFromDroneCenter;
+    vector3D unitTargetPos;
+    vector3D animateVector;
+    /* create vector upwards/downwards */
+    if(direction == 'u'){
+        targetPosFromDroneCenter = vector3D(0,0,ALTITUDE_OF_FLIGHT);
+    }else if(direction == 'd'){
+        targetPosFromDroneCenter = vector3D(0,0,-ALTITUDE_OF_FLIGHT);
+    }else{
+        throw std::invalid_argument("unknown direction");
+    }
+
+    /* creating auxiliary vectors */
+    unitTargetPos = targetPosFromDroneCenter / targetPosFromDroneCenter.getLength();
+    unitTargetPos = unitTargetPos * 2;
+    animateVector = unitTargetPos;
+    while(animateVector.getLength() < targetPosFromDroneCenter.getLength()){
+        animateVector = animateVector + unitTargetPos;
+        drone[chosenIndex].translateDrone(unitTargetPos);
+        drone[chosenIndex].calculatePosition();
+        /* animating rotation of rotors */
+        /* 12 * 5 = 60 -> its important */
+        for(int i = 0; i < 12; ++i){
+            drone[chosenIndex].rotateRotors(Matrix3x3(5, 'z'),Matrix3x3(-5, 'z'), i);
+//            usleep(ANIMATION_SPEED);
+            drawScene();
+        }
+
+    }
+    animateVector = animateVector * -1;
+    drone[chosenIndex].translateDrone(animateVector);
+    /* translate drone by this vec*/
+    drone[chosenIndex].translateDrone(targetPosFromDroneCenter);
+    drone[chosenIndex].calculatePosition();
+    drawScene();
+}
+

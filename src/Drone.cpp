@@ -58,6 +58,8 @@ Drone::Drone(std::string fileNameOfDeck, std::string fileNameOfRotor0,
     initVec = initVec + initialTranslation;
     this->rotors[3] = HexagonalPrism("../data/hexagonalPrismModel.txt",
                                      fileNameOfRotor3, initMat, initVec);
+
+    calculatePosition();
 }
 //
 //void Drone::unitRotationOfRotors(){
@@ -141,5 +143,41 @@ void Drone::translateDrone(vector3D vec) {
         pos = (this->rotors[i].getPosition());
         pos = pos + vec;
         this->rotors[i].setPosition(pos);
+    }
+}
+
+
+void Drone::rotateRotors(const Matrix3x3 &rotLeft, const Matrix3x3 &rotRight, const int &numberOfRotation) {
+    vector3D pos;
+    vector3D deckCenterCords = this->deck.getPosition();
+    Matrix3x3 matrixToAnimateLeft = Matrix3x3();
+    Matrix3x3 matrixToAnimateRight = Matrix3x3();
+//    numberOfRotation = numberOfRotation % 360;
+
+    /* creating proper matrix */
+    for(int i = 0; i <numberOfRotation; ++i){
+        matrixToAnimateLeft = rotLeft * matrixToAnimateLeft;
+        matrixToAnimateRight = rotRight * matrixToAnimateRight;
+    }
+
+
+
+    /*rotating by this matrix and going back to proper position */
+    for(int r = 0; r < NUMBER_OF_ROTORS; ++r){
+        this->rotors[r].readModelVerticesPosition();
+    /* rotate rotor in his center of mass */
+        if(r%2 == 0){
+            this->rotors[r].rotationByMatrix(matrixToAnimateRight);
+        }else{
+            this->rotors[r].rotationByMatrix(matrixToAnimateLeft);
+        }
+        /*translate to deck coord system */
+        pos = this->rotors[r].getPosition();
+        pos = pos - deckCenterCords;
+        this->rotors[r].translationByVector(pos);
+        /* rotate by orientation*/
+        this->rotors[r].rotationByMatrix(this->rotors[r].getOrientation());
+        /*translate rotors back to main coord system*/
+        this->rotors[r].translationByVector(this->deck.getPosition());
     }
 }
