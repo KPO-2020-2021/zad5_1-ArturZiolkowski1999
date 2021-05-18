@@ -13,6 +13,7 @@
 class scene{
 private:
     std::string boardFileName = "../data/board.txt";
+    std::string routeFileName = "../data/route.txt";
     PzG::LaczeDoGNUPlota GNU;
     double XRange[2];
     double YRange[2];
@@ -27,9 +28,10 @@ public:
     scene(double _XRange[2], double _YRange[2], double _ZRange[2]);
     void drawScene();
     void animateDroneTranslation(double angleOfFlight, double lengthOfFlight);
-//    void animateRotateCuboid(double &degree, char &axis);
-//    void animateTranslateRectangle();
-//    void rotateByAmountOfRotation(int amountOfRotation);
+    void animateUpwardsMovement(char direction);
+    void animateRotation(double targetAngle, char axis);
+    void writeRouteToFile(vector3D &translation);
+    void deleteRouteFromFile();
     const Drone & operator[](int index) const;
     Drone & operator[](int index);
     int getIndex();
@@ -38,7 +40,7 @@ public:
     vector3D getTranslation();
     void setRotation(Matrix3x3 rotMatrix);
     Matrix3x3 getRotation();
-    void animateUpwardsMovement(char direction);
+
 };
 
 #endif //ROTATION3D_GNUPLOTDRAWINGS_H

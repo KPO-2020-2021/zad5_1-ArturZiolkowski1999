@@ -50,7 +50,7 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
                    "../data/drone1_rotor3.txt", initialPosDrone1, initialOrientation);
 
 
-    GNU.UstawRotacjeXZ(60,30);
+    GNU.UstawRotacjeXZ(80,70);
 
 
     for(int h = 0; h < NUMBER_OF_DRONES; ++h){
@@ -67,6 +67,12 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
                 .ZmienSzerokosc(1)
                 .ZmienKolor(2);
     }
+
+    /*route and board files*/
+    GNU.DodajNazwePliku(this->routeFileName.c_str())
+            .ZmienSposobRys(PzG::SR_Ciagly)
+            .ZmienSzerokosc(1)
+            .ZmienKolor(3);
 
     GNU.DodajNazwePliku(this->boardFileName.c_str())
             .ZmienSposobRys(PzG::SR_Ciagly)
@@ -110,6 +116,7 @@ void scene::drawScene(){
     }
 
 
+
     /* Drawing simple background */
     os.open(this->boardFileName);
     if(!os){
@@ -130,63 +137,6 @@ void scene::drawScene(){
     GNU.Inicjalizuj();
     GNU.Rysuj();
 }
-
-//
-//void scene::animateRotateCuboid( double &degree, char &axis) {
-//    Cuboid oldCub = this->cub[this->chosenIndex];
-//    Matrix3x3 rotMatrix = Matrix3x3();
-//    Matrix3x3 oldMatrix = this->rotMatrix;
-//    double singleDegree = 0;
-//    while (std::abs(singleDegree) < std::abs(degree)){
-//        singleDegree += 2;
-//        if(degree >= 0){
-//            rotMatrix = Matrix3x3(2,axis);
-//            this->cub[this->chosenIndex].rotationByMatrix(rotMatrix);
-//        }else{
-//            rotMatrix = Matrix3x3(-2,axis);
-//            this->cub[this->chosenIndex].rotationByMatrix(rotMatrix);
-//        }
-//        usleep(ANIMATION_SPEED);
-//        drawScene();
-//    }
-//    this->cub[this->chosenIndex] = oldCub;
-//    this->rotMatrix = Matrix3x3(degree, axis);
-//    this->cub[this->chosenIndex].rotationByMatrix(this->rotMatrix);
-//    this->rotMatrix = this->rotMatrix * oldMatrix;
-//    drawScene();
-//}
-//
-//void scene::animateTranslateRectangle() {
-//    Cuboid oldCub = this->cub[this->chosenIndex];
-//    vector3D animateTranslation = this->translation;
-//    animateTranslation = animateTranslation/this->translation.getLength();
-//    vector3D unityTranslation = this->translation;
-//    unityTranslation = unityTranslation/this->translation.getLength();
-//    unityTranslation = unityTranslation/RESOLUTION;
-//    double i = 0;
-//    while (animateTranslation.getLength() < this->translation.getLength()){
-//        i++;
-//        animateTranslation = unityTranslation * i;
-//        this->cub[this->chosenIndex].translationByVector(animateTranslation);
-//        usleep(ANIMATION_SPEED);
-//        drawScene();
-//        this->cub[this->chosenIndex] = oldCub;
-////        animateTranslation = animateTranslation + unityTranslation;
-//    }
-//    this->cub[this->chosenIndex] = oldCub;
-//    this->cub[this->chosenIndex].translationByVector(this->translation);
-//    drawScene();
-//}
-//
-//void scene::rotateByAmountOfRotation(int amountOfRotation) {
-//
-//    Matrix3x3 matrixGetForSingleRotation = this->rotMatrix;
-//    for(int k = 1; k < amountOfRotation; ++k){
-//        this->rotMatrix = matrixGetForSingleRotation * this->rotMatrix;
-//    }
-//    this->cub[this->chosenIndex].rotationByMatrix(this->rotMatrix);
-//    drawScene();
-//}
 
 const Drone &scene::operator[](int index) const {
     switch (index) {
@@ -252,13 +202,20 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
     /*animate rotation*/
     drone[chosenIndex].rotateDrone(targetOrient);
 
-    /*translate upwards */
-    animateUpwardsMovement('u');
 
     /* create vector of proper len but only x cord*/
     targetPosFromDroneCenter = vector3D(lengthOfFlight,0,0);
+    /* draw route */
+    writeRouteToFile(targetPosFromDroneCenter);
     /* rotating this vec by orientation of drone*/
     targetPosFromDroneCenter = drone[chosenIndex].getDeck().getOrientation() * targetPosFromDroneCenter;
+
+    /* draw route */
+    writeRouteToFile(targetPosFromDroneCenter);
+
+    /*translate upwards */
+    animateUpwardsMovement('u');
+
     /* creating auxiliary vectors */
     unitTargetPos = targetPosFromDroneCenter / targetPosFromDroneCenter.getLength();
     unitTargetPos = unitTargetPos * 2;
@@ -268,9 +225,10 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
         drone[chosenIndex].translateDrone(unitTargetPos);
         drone[chosenIndex].calculatePosition();
         /* animating rotation of rotors */
-        /* 12 * 5 = 60 -> its important */
-        for(int i = 0; i < 12; ++i){
-            drone[chosenIndex].rotateRotors(Matrix3x3(5, 'z'),Matrix3x3(-5, 'z'), i);
+        /* 10 * 6
+         * = 60 -> its important */
+        for(int i = 0; i < 6; ++i){
+            drone[chosenIndex].rotateRotors(Matrix3x3(10, 'z'),Matrix3x3(-10, 'z'), i);
 //            usleep(ANIMATION_SPEED);
             drawScene();
         }
@@ -285,6 +243,9 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
 
     /*translate downwards */
     animateUpwardsMovement('d');
+
+    /* delete route*/
+    deleteRouteFromFile();
 }
 
 void scene::animateUpwardsMovement(char direction) {
@@ -309,9 +270,9 @@ void scene::animateUpwardsMovement(char direction) {
         drone[chosenIndex].translateDrone(unitTargetPos);
         drone[chosenIndex].calculatePosition();
         /* animating rotation of rotors */
-        /* 12 * 5 = 60 -> its important */
-        for(int i = 0; i < 12; ++i){
-            drone[chosenIndex].rotateRotors(Matrix3x3(5, 'z'),Matrix3x3(-5, 'z'), i);
+        /* 10 * 6 = 60 -> its important */
+        for(int i = 0; i < 6; ++i){
+            drone[chosenIndex].rotateRotors(Matrix3x3(10, 'z'),Matrix3x3(-10, 'z'), i);
 //            usleep(ANIMATION_SPEED);
             drawScene();
         }
@@ -323,5 +284,39 @@ void scene::animateUpwardsMovement(char direction) {
     drone[chosenIndex].translateDrone(targetPosFromDroneCenter);
     drone[chosenIndex].calculatePosition();
     drawScene();
+}
+
+void scene::writeRouteToFile(vector3D &translation) {
+    vector3D upWard = vector3D(0,0, ALTITUDE_OF_FLIGHT);
+    vector3D pos;
+    std::ofstream os;
+    os.open(this->routeFileName);
+    if(!os){
+        throw std::exception();
+    }
+    /*Starting point */
+    os << this->drone[this->chosenIndex].getDeck().getPosition();
+
+    /*upward position */
+    pos = this->drone[this->chosenIndex].getDeck().getPosition() ;
+    pos = pos + upWard;
+    os << pos;
+    /*translated position */
+    pos = pos + translation;
+    os << pos;
+    /* downward position*/
+    pos = pos - upWard;
+    os << pos;
+    os.close();
+}
+
+void scene::deleteRouteFromFile() {
+    std::ofstream os;
+    os.open(this->routeFileName);
+    if(!os){
+        throw std::exception();
+    }
+
+    os.close();
 }
 
