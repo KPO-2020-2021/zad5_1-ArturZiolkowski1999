@@ -10,6 +10,7 @@
 
 template <typename T, unsigned int dimension>
 class Vector {
+
 protected:
     T vector[dimension];
 public:
@@ -55,6 +56,7 @@ public:
     friend class vector3D;
 
 };
+
 
     template<typename T, unsigned int dimension>
     Vector<T, dimension>::Vector() {

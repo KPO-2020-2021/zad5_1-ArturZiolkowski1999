@@ -6,6 +6,7 @@
 #define ROTATION2D_CONSTANS_H
 
 /*the bigger ANIMATION_SPEED the slower animation is */
+const int VECTOR_SIZE = 3;
 const int ANIMATION_SPEED = 10000;
 const int RESOLUTION = 20;
 const int VECTOR_PRECISION = 10;

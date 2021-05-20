@@ -6,7 +6,7 @@
 #include "Cuboid.h"
 #include "Vector3D.h"
 #include "scene.h"
-#define Vector vector3D
+
 
 
 void menuDisplay();
@@ -72,30 +72,14 @@ int main() {
 
                 gnu.animateDroneTranslation(angleOfFlight, lengthOfFlight);
 
-//                targetOrient = Matrix3x3(angleOfFlight, 'z');
-//                gnu[gnu.getIndex()].rotateDrone(targetOrient);
-//                /* create vector of proper len but only x cord*/
-//                targetPosFromDroneCenter = vector3D(lengthOfFlight,0,0);
-//                /* rotating this vec by orientation of drone*/
-//                targetPosFromDroneCenter = gnu[gnu.getIndex()].getDeck().getOrientation() * targetPosFromDroneCenter;
-//                /* translate drone by this vec*/
-//                gnu[gnu.getIndex()].translateDrone(targetPosFromDroneCenter);
-
                 /*updating scene */
                 gnu[gnu.getIndex()].calculatePosition();
                 gnu.drawScene();
 
-//            case 'o':
-//                chooseIndex(gnu);
-//                gnu.rotMatrix = Matrix3x3();
-//                getRotationMatrix(gnu);
-//                std::cout << "give amount of rotation (it has to be positive integer) \n";
-//                std::cin >> amountOfRotation;
-//                if(amountOfRotation <= 0){
-//                    throw std::invalid_argument("Incorrect amount of rotation");
-//                }
-//                gnu.rotateByAmountOfRotation(amountOfRotation);
-//                break;
+            case 'w':
+                std::cout << vector3D::getTotal() << "<-- Total\n";
+                std::cout << vector3D::getActual() << "<-- Actual\n";
+                break;
 //            case 'p':
 //                chooseIndex(gnu);
 //                std::cin >> gnu.translation;
