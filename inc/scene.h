@@ -19,8 +19,7 @@ private:
     double YRange[2];
     double ZRange[2];
     Drone drone[NUMBER_OF_DRONES];
-    Matrix3x3 rotMatrix = Matrix3x3();
-    vector3D translation = vector3D();
+
     int chosenIndex;
 
 public:
@@ -36,10 +35,7 @@ public:
     Drone & operator[](int index);
     int getIndex();
     void setIndex(int index);
-    void setTranslation(vector3D translation);
-    vector3D getTranslation();
-    void setRotation(Matrix3x3 rotMatrix);
-    Matrix3x3 getRotation();
+    void changeDronesColors();
 
 };
 

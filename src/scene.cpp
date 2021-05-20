@@ -14,8 +14,8 @@ scene::scene() {
 
     this->chosenIndex = 0;
 
-    vector3D initialPosDrone0 = vector3D(0,0,0.5);
-    vector3D initialPosDrone1 = vector3D(10,10,0.5);
+    vector3D initialPosDrone0 = vector3D(0,0,HALF_OF_DRONE_HEIGHT);
+    vector3D initialPosDrone1 = vector3D(10,10,HALF_OF_DRONE_HEIGHT);
     Matrix3x3 initialOrientation = Matrix3x3();
 
     this->drone[0] = Drone("../data/drone0_deck.txt", "../data/drone0_rotor0.txt",
@@ -37,8 +37,8 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
     this->ZRange[0] = _ZRange[0];
     this->ZRange[1] = _ZRange[1];
 
-    vector3D initialPosDrone0 = vector3D(20,20,1);
-    vector3D initialPosDrone1 = vector3D(180,180,1);
+    vector3D initialPosDrone0 = vector3D(20,20,HALF_OF_DRONE_HEIGHT);
+    vector3D initialPosDrone1 = vector3D(180,180,HALF_OF_DRONE_HEIGHT);
     Matrix3x3 initialOrientation = Matrix3x3();
 
     this->drone[0] = Drone("../data/drone0_deck.txt", "../data/drone0_rotor0.txt",
@@ -59,20 +59,20 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
             GNU.DodajNazwePliku(this->drone[h][i].getFileNameOfBlock().c_str())
                     .ZmienSposobRys(PzG::SR_Ciagly)
                     .ZmienSzerokosc(1)
-                    .ZmienKolor(2);
+                    .ZmienKolor(CHOSEN_DRONE_COLOR);
         }
         /* deck file */
         GNU.DodajNazwePliku(this->drone[h].getDeck().getFileNameOfBlock().c_str())
                 .ZmienSposobRys(PzG::SR_Ciagly)
                 .ZmienSzerokosc(1)
-                .ZmienKolor(2);
+                .ZmienKolor(CHOSEN_DRONE_COLOR);
     }
 
     /*route and board files*/
     GNU.DodajNazwePliku(this->routeFileName.c_str())
             .ZmienSposobRys(PzG::SR_Ciagly)
             .ZmienSzerokosc(1)
-            .ZmienKolor(3);
+            .ZmienKolor(CHOSEN_DRONE_COLOR);
 
     GNU.DodajNazwePliku(this->boardFileName.c_str())
             .ZmienSposobRys(PzG::SR_Ciagly)
@@ -177,21 +177,6 @@ void scene::setIndex(int index) {
     }
 }
 
-void scene::setTranslation(vector3D translation) {
-    this->translation = translation;
-}
-
-vector3D scene::getTranslation() {
-    return this->translation;
-}
-
-void scene::setRotation(Matrix3x3 rotMatrix) {
-    this->rotMatrix = rotMatrix;
-}
-
-Matrix3x3 scene::getRotation() {
-    return this->rotMatrix;
-}
 
 void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight) {
     vector3D targetPosFromDroneCenter;
@@ -200,8 +185,7 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
     Matrix3x3 targetOrient = Matrix3x3(angleOfFlight, 'z');
 
     /*animate rotation*/
-    drone[chosenIndex].rotateDrone(targetOrient);
-
+    animateRotation(angleOfFlight, 'z'),
 
     /* create vector of proper len but only x cord*/
     targetPosFromDroneCenter = vector3D(lengthOfFlight,0,0);
@@ -226,9 +210,9 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
         drone[chosenIndex].calculatePosition();
         /* animating rotation of rotors */
         /* 10 * 6
-         * = 60 -> its important */
-        for(int i = 0; i < 6; ++i){
-            drone[chosenIndex].rotateRotors(Matrix3x3(10, 'z'),Matrix3x3(-10, 'z'), i);
+         * = 60 -> its important because hexagonal prism after 60 degree rotation are look the same */
+        for(int i = 0; i < (60/RESOLUTION); ++i){
+            drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
 //            usleep(ANIMATION_SPEED);
             drawScene();
         }
@@ -271,8 +255,8 @@ void scene::animateUpwardsMovement(char direction) {
         drone[chosenIndex].calculatePosition();
         /* animating rotation of rotors */
         /* 10 * 6 = 60 -> its important */
-        for(int i = 0; i < 6; ++i){
-            drone[chosenIndex].rotateRotors(Matrix3x3(10, 'z'),Matrix3x3(-10, 'z'), i);
+        for(int i = 0; i < (60/RESOLUTION); ++i){
+            drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
 //            usleep(ANIMATION_SPEED);
             drawScene();
         }
@@ -318,5 +302,99 @@ void scene::deleteRouteFromFile() {
     }
 
     os.close();
+}
+
+void scene::changeDronesColors() {
+    if(this->chosenIndex == 0){
+        for(int i = 0; i < NUMBER_OF_ROTORS; ++ i){
+            GNU.DodajNazwePliku(this->drone[0][i].getFileNameOfBlock().c_str())
+                    .ZmienSposobRys(PzG::SR_Ciagly)
+                    .ZmienSzerokosc(1)
+                    .ZmienKolor(CHOSEN_DRONE_COLOR);
+        }
+        GNU.DodajNazwePliku(this->drone[0].getDeck().getFileNameOfBlock().c_str())
+                .ZmienSposobRys(PzG::SR_Ciagly)
+                .ZmienSzerokosc(1)
+                .ZmienKolor(CHOSEN_DRONE_COLOR);
+
+        for(int i = 0; i < NUMBER_OF_ROTORS; ++ i){
+            GNU.DodajNazwePliku(this->drone[1][i].getFileNameOfBlock().c_str())
+                    .ZmienSposobRys(PzG::SR_Ciagly)
+                    .ZmienSzerokosc(1)
+                    .ZmienKolor(NOT_CHOSEN_DRONE_COLOR);
+        }
+        GNU.DodajNazwePliku(this->drone[1].getDeck().getFileNameOfBlock().c_str())
+                .ZmienSposobRys(PzG::SR_Ciagly)
+                .ZmienSzerokosc(1)
+                .ZmienKolor(NOT_CHOSEN_DRONE_COLOR);
+    }else if(this->chosenIndex = 1){
+        for(int i = 0; i < NUMBER_OF_ROTORS; ++ i){
+            GNU.DodajNazwePliku(this->drone[1][i].getFileNameOfBlock().c_str())
+                    .ZmienSposobRys(PzG::SR_Ciagly)
+                    .ZmienSzerokosc(1)
+                    .ZmienKolor(CHOSEN_DRONE_COLOR);
+        }
+        GNU.DodajNazwePliku(this->drone[1].getDeck().getFileNameOfBlock().c_str())
+                .ZmienSposobRys(PzG::SR_Ciagly)
+                .ZmienSzerokosc(1)
+                .ZmienKolor(CHOSEN_DRONE_COLOR);
+
+        for(int i = 0; i < NUMBER_OF_ROTORS; ++ i){
+            GNU.DodajNazwePliku(this->drone[0][i].getFileNameOfBlock().c_str())
+                    .ZmienSposobRys(PzG::SR_Ciagly)
+                    .ZmienSzerokosc(1)
+                    .ZmienKolor(NOT_CHOSEN_DRONE_COLOR);
+        }
+        GNU.DodajNazwePliku(this->drone[0].getDeck().getFileNameOfBlock().c_str())
+                .ZmienSposobRys(PzG::SR_Ciagly)
+                .ZmienSzerokosc(1)
+                .ZmienKolor(NOT_CHOSEN_DRONE_COLOR);
+    }else{
+        throw std::invalid_argument("out of index");
+    }
+}
+
+void scene::animateRotation(double targetAngle, char axis) {
+
+    if(axis != 'x' && axis != 'y' && axis != 'z'){
+        throw std::invalid_argument("unknown axis");
+    }
+    /* create single degree rotation matrix */
+    Matrix3x3 targetMatrix = Matrix3x3(targetAngle, axis);
+    Matrix3x3 reverseAnimateMatrix = Matrix3x3();
+    Matrix3x3 unitMatrixMinus = Matrix3x3(-2, axis);
+    Matrix3x3 unitMatrixPlus = Matrix3x3(2, axis);
+
+    double animateDegree = 0;
+
+    /* animation */
+
+    while(fabs(animateDegree) < targetAngle){
+
+        if(targetAngle < 0){
+            animateDegree -= 2;
+            reverseAnimateMatrix = unitMatrixPlus * reverseAnimateMatrix;
+        }else{
+            animateDegree += 2;
+            reverseAnimateMatrix = unitMatrixMinus * reverseAnimateMatrix;
+            drone[chosenIndex].rotateDrone(unitMatrixPlus);
+        }
+        drone[chosenIndex].calculatePosition();
+
+        /* animating rotation of rotors */
+        /* 10 * 6 = 60 -> its important */
+        for(int i = 0; i < (60/RESOLUTION); ++i){
+            drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
+//            usleep(ANIMATION_SPEED);
+            drawScene();
+        }
+
+    }
+    drone[chosenIndex].rotateDrone(reverseAnimateMatrix);
+    drone[chosenIndex].calculatePosition();;
+    drone[chosenIndex].rotateDrone(targetMatrix);
+    /* translate drone by this vec*/
+    drone[chosenIndex].calculatePosition();
+    drawScene();
 }
 

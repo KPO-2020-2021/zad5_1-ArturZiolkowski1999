@@ -25,11 +25,10 @@ int main() {
 
     /*display menu*/
     menuDisplay();
+    gnu.changeDronesColors();
     gnu.drawScene();
 
-    double lengthOfFlight; double angleOfFlight;
-//    vector3D targetPosFromDroneCenter;
-//    Matrix3x3 targetOrient;
+    double lengthOfFlight; double angleOfFlight;;
     int droneIndex;
     char c = ' ';
     while(c != 'k'){
@@ -63,6 +62,7 @@ int main() {
                         throw std::invalid_argument("Unknown drone is chosen");
                     }
                     gnu.setIndex(droneIndex);
+                    gnu.changeDronesColors();
                 break;
             case 'p':
                 std::cout << "give target angle in degree\n";
