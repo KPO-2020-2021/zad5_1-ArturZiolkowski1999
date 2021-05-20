@@ -398,3 +398,64 @@ void scene::animateRotation(double targetAngle, char axis) {
     drawScene();
 }
 
+void scene::makeCircleWithDrone(vector3D centerOfCircle, double radius) {
+
+
+    /*translate upwards */
+    animateUpwardsMovement('u');
+    /*translate by radius */
+    vector3D targetPosition = centerOfCircle;
+    targetPosition = targetPosition / centerOfCircle.getLength();
+    /* calculate vector from centre of circlce to drone */
+    vector3D distance = this->drone[this->chosenIndex].getDeck().getPosition();
+    distance = distance - centerOfCircle;
+
+    while()
+    while(fabs(distance.getLength()) < radius){
+        /* idz o wektor do przodu */
+    }
+
+
+    /*translate downwards */
+    animateUpwardsMovement('d');
+
+
+}
+
+void scene::animateSimpleDroneTranslation(double angleOfFlight, vector3D targetVec) {
+    vector3D targetPosFromDroneCenter;
+    vector3D unitTargetPos;
+    vector3D animateVector = vector3D();
+    Matrix3x3 targetOrient = Matrix3x3(angleOfFlight, 'z');
+
+    /*animate rotation*/
+    animateRotation(angleOfFlight, 'z');
+
+
+    /* creating auxiliary vectors */
+    unitTargetPos = targetVec / targetVec.getLength();
+    unitTargetPos = unitTargetPos * 2;
+    animateVector = unitTargetPos;
+    while(animateVector.getLength() < targetVec.getLength()){
+        animateVector = animateVector + unitTargetPos;
+        drone[chosenIndex].translateDrone(unitTargetPos);
+        drone[chosenIndex].calculatePosition();
+        /* animating rotation of rotors */
+        /* 10 * 6
+         * = 60 -> its important because hexagonal prism after 60 degree rotation are look the same */
+        for(int i = 0; i < (60/RESOLUTION); ++i){
+            drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
+//            usleep(ANIMATION_SPEED);
+            drawScene();
+        }
+
+    }
+    animateVector = animateVector * -1;
+    drone[chosenIndex].translateDrone(animateVector);
+    /* translate drone by this vec*/
+    drone[chosenIndex].translateDrone(targetPosFromDroneCenter);
+    drone[chosenIndex].calculatePosition();
+    drawScene();
+
+}
+

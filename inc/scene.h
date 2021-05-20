@@ -27,6 +27,7 @@ public:
     scene(double _XRange[2], double _YRange[2], double _ZRange[2]);
     void drawScene();
     void animateDroneTranslation(double angleOfFlight, double lengthOfFlight);
+    void animateSimpleDroneTranslation(double angleOfFlight, vector3D targetVec);
     void animateUpwardsMovement(char direction);
     void animateRotation(double targetAngle, char axis);
     void writeRouteToFile(vector3D &translation);
@@ -36,6 +37,7 @@ public:
     int getIndex();
     void setIndex(int index);
     void changeDronesColors();
+    void makeCircleWithDrone(vector3D centreOfCircle, double radius);
 
 };
 
