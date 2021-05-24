@@ -5,6 +5,8 @@
 #ifndef ROTATION2D_CONSTANS_H
 #define ROTATION2D_CONSTANS_H
 
+const bool DO_YOU_HAVE_OLD_AND_VERY_SLOW_PC_IF_YES_SWITCH_TO_TRUE = true;
+
 /*the bigger ANIMATION_SPEED the slower animation is */
 const int VECTOR_SIZE = 3;
 const int ANIMATION_SPEED = 10000;

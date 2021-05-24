@@ -257,245 +257,78 @@ TEST (Matrix, FailIndexing) {
     EXPECT_THROW(A(2,4), std::invalid_argument);
 }
 
-//TEST (Cuboid, EmptyConstructor) {
-//
-//    Cuboid Adam = Cuboid();
-//    Cuboid Ewa = Cuboid();
-//
-//    vector3D Vec = vector3D();
-//
-//    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; i++){
-//        Adam[i] = Vec;
-//    }
-//
-//    EXPECT_EQ(Adam, Ewa);
-//}
-//
-//TEST (Cuboid, ConstructorWithVerticesInOrder) {
-//
-//    vector3D Ver0 = vector3D(0,0,1);
-//    vector3D Ver1 = vector3D(5,0,1);
-//    vector3D Ver2 = vector3D(5,0,4);
-//    vector3D Ver3 = vector3D(0,0,4);
-//
-//    vector3D Ver4 = vector3D(0,7,1);
-//    vector3D Ver5 = vector3D(5,7,1);
-//    vector3D Ver6 = vector3D(5,7,4);
-//    vector3D Ver7 = vector3D(0,7,4);
-//
-//    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-//    Cuboid Adam = Cuboid(vertices);
-//    Cuboid Ewa = Cuboid();
-//
-//    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; i++){
-//        Ewa[i] = vertices[i];
-//    }
-//
-//    EXPECT_EQ(Adam, Ewa);
-//}
-//
-//
-//TEST (Cuboid, TranslationByWector) {
-//    vector3D Ver0 = vector3D(0,0,1);
-//    vector3D Ver1 = vector3D(5,0,1);
-//    vector3D Ver2 = vector3D(5,0,4);
-//    vector3D Ver3 = vector3D(0,0,4);
-//
-//    vector3D Ver4 = vector3D(0,7,1);
-//    vector3D Ver5 = vector3D(5,7,1);
-//    vector3D Ver6 = vector3D(5,7,4);
-//    vector3D Ver7 = vector3D(0,7,4);
-//
-//    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-//    Cuboid Adam = Cuboid(vertices);
-//    vector3D translation = vector3D(1, 2, 3);
-//
-//    Adam.translationByVector(translation);
-//    Cuboid Ewa = Cuboid();
-//
-//    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; i++){
-//        Ewa[i] = (vertices[i] + translation);
-//    }
-//    EXPECT_EQ(Adam, Ewa);
-//}
-//
-//TEST (Cuboid, RotationByDegrees) {
-//
-//    vector3D Ver0 = vector3D(0,0,1);
-//    vector3D Ver1 = vector3D(5,0,1);
-//    vector3D Ver2 = vector3D(5,0,4);
-//    vector3D Ver3 = vector3D(0,0,4);
-//
-//    vector3D Ver4 = vector3D(0,7,1);
-//    vector3D Ver5 = vector3D(5,7,1);
-//    vector3D Ver6 = vector3D(5,7,4);
-//    vector3D Ver7 = vector3D(0,7,4);
-//
-//    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-//    Cuboid Adam = Cuboid(vertices);
-//    Matrix3x3 rotation = Matrix3x3(360, 'z');
-//    Adam.rotationByMatrix(rotation);
-//
-//    Cuboid Ewa = Cuboid();
-//
-//    for(int i = 0; i < VERTICES_NUMBER_OF_CUBOID; i++){
-//        Ewa[i] = (rotation * vertices[i]);
-//    }
-//
-//    EXPECT_EQ(Adam, Ewa);
-//}
-//
-//TEST (Cuboid, Ostream) {
-//
-//    std::stringstream ost;
-//    vector3D Ver0 = vector3D(0,0,1);
-//    vector3D Ver1 = vector3D(5,0,1);
-//    vector3D Ver2 = vector3D(5,0,4);
-//    vector3D Ver3 = vector3D(0,0,4);
-//
-//    vector3D Ver4 = vector3D(0,7,1);
-//    vector3D Ver5 = vector3D(5,7,1);
-//    vector3D Ver6 = vector3D(5,7,4);
-//    vector3D Ver7 = vector3D(0,7,4);
-//
-//    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-//    Cuboid Adam = Cuboid(vertices);
-//    ost << Adam;
-//    /* cuboid in cout give 10 decimal point fixed precision */
-//    EXPECT_EQ("2.5000000000 0.0000000000 2.5000000000\n5.0000000000 0.0000000000 4.0000000000"
-//              "\n5.0000000000 7.0000000000 4.0000000000\n2.5000000000 7.0000000000 2.5000000000\n#\n\n"
-//              "2.5000000000 0.0000000000 2.5000000000\n5.0000000000 0.0000000000 1.0000000000\n"
-//              "5.0000000000 7.0000000000 1.0000000000\n2.5000000000 7.0000000000 2.5000000000\n#\n""\n"
-//              "2.5000000000 0.0000000000 2.5000000000\n0.0000000000 0.0000000000 1.0000000000\n"
-//              "0.0000000000 7.0000000000 1.0000000000\n2.5000000000 7.0000000000 2.5000000000\n#\n\n"
-//              "2.5000000000 0.0000000000 2.5000000000\n0.0000000000 0.0000000000 4.0000000000\n"
-//              "0.0000000000 7.0000000000 4.0000000000\n2.5000000000 7.0000000000 2.5000000000\n#\n\n"
-//              "2.5000000000 0.0000000000 2.5000000000\n5.0000000000 0.0000000000 4.0000000000\n"
-//              "5.0000000000 7.0000000000 4.0000000000\n2.5000000000 7.0000000000 2.5000000000\n#\n\n"
-//    , ost.str());
-//}
-//
-//TEST (Cuboid, GetSidesLength) {
-//
-//    vector3D Ver0 = vector3D(0,0,1);
-//    vector3D Ver1 = vector3D(5,0,1);
-//    vector3D Ver2 = vector3D(5,0,4);
-//    vector3D Ver3 = vector3D(0,0,4);
-//
-//    vector3D Ver4 = vector3D(0,7,1);
-//    vector3D Ver5 = vector3D(5,7,1);
-//    vector3D Ver6 = vector3D(5,7,4);
-//    vector3D Ver7 = vector3D(0,7,4);
-//
-//    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-//    Cuboid Adam = Cuboid(vertices);
-//    Adam.calculateSidesLength();
-//
-//
-//    EXPECT_NEAR(Adam.getSideLength(0) , Adam.getSideLength(2), 0.00000001);
-//    EXPECT_NEAR(Adam.getSideLength(0) , 5.0 , 0.00000001);
-//
-//    EXPECT_NEAR(Adam.getSideLength(4) , Adam.getSideLength(5), 0.00000001);
-//    EXPECT_NEAR(Adam.getSideLength(5) , 3.0, 0.00000001);
-//    EXPECT_NEAR(Adam.getSideLength(10) , Adam.getSideLength(11), 0.00000001);
-//    EXPECT_NEAR(Adam.getSideLength(10) , 7.0, 0.00000001);
-//}
-//
-//TEST (Cuboid, Indexing) {
-//
-//    vector3D Ver0 = vector3D(0,0,1);
-//    vector3D Ver1 = vector3D(5,0,1);
-//    vector3D Ver2 = vector3D(5,0,4);
-//    vector3D Ver3 = vector3D(0,0,4);
-//
-//    vector3D Ver4 = vector3D(0,7,1);
-//    vector3D Ver5 = vector3D(5,7,1);
-//    vector3D Ver6 = vector3D(5,7,4);
-//    vector3D Ver7 = vector3D(0,7,4);
-//
-//    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-//    Cuboid Adam = Cuboid(vertices);
-//    vector3D result= vector3D(1.2, 1.3, 1.4);
-//    Adam[0] = result;
-//
-//EXPECT_EQ(Adam[0], result);
-//}
-//
-//TEST (Cuboid, calculateCenterOfMass) {
-//    vector3D Ver0 = vector3D(-1,-1,0);
-//    vector3D Ver1 = vector3D(1,-1,0);
-//    vector3D Ver2 = vector3D(1,-1,2);
-//    vector3D Ver3 = vector3D(-1,-1,2);
-//
-//    vector3D Ver4 = vector3D(-1,1,0);
-//    vector3D Ver5 = vector3D(1,1,0);
-//    vector3D Ver6 = vector3D(1,1,2);
-//    vector3D Ver7 = vector3D(-1,1,2);
-//
-//    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-//    Cuboid Adam = Cuboid(vertices);
-//
-//    vector3D result = vector3D(0,0,1);
-//
-//    EXPECT_EQ(Adam.getCenterOfMass(), result);
-//}
-//
-//TEST (Drone, constructorsAndIndexing) {
-//
-//    vector3D translation = vector3D(10,100,1000);
-//    Drone drone1 = Drone();
-//    Drone drone2 = Drone(translation);
-//
-//    double xMax = 3, xMin = -3, yMax = 3, yMin = -3, zMax = 1, zMin = -1;
-//
-//    vector3D Ver0 = vector3D(xMin,yMin,zMin);
-//    vector3D Ver1 = vector3D(xMax,yMin,zMin);
-//    vector3D Ver2 = vector3D(xMax,yMin,zMax);
-//    vector3D Ver3 = vector3D(xMin,yMin,zMax);
-//
-//    vector3D Ver4 = vector3D(xMin,yMax,zMin);
-//    vector3D Ver5 = vector3D(xMax,yMax,zMin);
-//    vector3D Ver6 = vector3D(xMax,yMax,zMax);
-//    vector3D Ver7 = vector3D(xMin,yMax,zMax);
-//
-//    vector3D vertices[VERTICES_NUMBER_OF_CUBOID] = {Ver0, Ver1, Ver2, Ver3, Ver4, Ver5, Ver6, Ver7};
-//    Cuboid result = Cuboid(vertices);
-//    EXPECT_EQ(drone1[4], result);
-//    result.translationByVector(translation);
-//    EXPECT_EQ(drone2[4], result);
-//
-//    for(int i = 0; i < NUMBER_OF_ROTORS; ++i){
-//        switch (i) {
-//            case 0:
-//                xMax = -2; xMin = -4; yMax = 4; yMin = 2; zMax = 2; zMin = 1.2;
-//                break;
-//            case 1:
-//                xMax = 4; xMin = 2; yMax = 4; yMin = 2; zMax = 2; zMin = 1.2;
-//                break;
-//            case 2:
-//                xMax = 4; xMin = 2; yMax = -2; yMin = -4; zMax = 2; zMin = 1.2;
-//                break;
-//            case 3:
-//                xMax = -2; xMin = -4; yMax = -2; yMin = -4; zMax = 2; zMin = 1.2;
-//                break;
-//        }
-//        Ver0 = vector3D(xMin,yMin,zMin);
-//        Ver1 = vector3D(xMax,yMin,zMin);
-//        Ver2 = vector3D(xMax,yMin,zMax);
-//        Ver3 = vector3D(xMin,yMin,zMax);
-//        Ver4 = vector3D(xMin,yMax,zMin);
-//        Ver5 = vector3D(xMax,yMax,zMin);
-//        Ver6 = vector3D(xMax,yMax,zMax);
-//        Ver7 = vector3D(xMin,yMax,zMax);
-//
-//        vertices[0] = Ver0; vertices[1] = Ver1; vertices[2] = Ver2; vertices[3] = Ver3,
-//                vertices[4] = Ver4; vertices[5] = Ver5; vertices[6] = Ver6; vertices[7] = Ver7;
-//                result = Cuboid(vertices);
-//        EXPECT_EQ(drone1[i], result);
-//        result.translationByVector(translation);
-//        EXPECT_EQ(drone2[i], result);
-//    }
-//}
+TEST (Cuboid, RotationByDegrees) {
+
+    Matrix3x3 initMat = Matrix3x3();
+    vector3D initVec = vector3D();
+    Cuboid Adam = Cuboid("../data/cuboidModel.txt", "../data/deck.txt", initMat, initVec);
+    initMat= Matrix3x3(90, 'z');
+    Cuboid Ewa = Cuboid("../data/cuboidModel.txt", "../data/deck.txt", initMat, initVec);
+    Adam.rotationByMatrix(initMat);
+    Adam.calculateActualPosition();
+
+    EXPECT_EQ(Adam[0], Ewa[0]);
+}
+
+TEST (Cuboid, Ostream) {
+
+    std::stringstream ost;
+
+    Matrix3x3 initMat = Matrix3x3();
+    vector3D initVec = vector3D(1,2,3);
+
+    Cuboid Adam = Cuboid("../data/cuboidModel.txt", "../data/deck.txt", initMat, initVec);
+    Adam.calculateActualPosition();
+    ost << Adam;
+    /* cuboid in cout give 10 decimal point fixed precision */
+    EXPECT_EQ("1.0000000000 2.0000000000 3.0000000000\n1.0000000000 2.0000000000 3.0000000000\n"
+              "1.0000000000 2.0000000000 3.0000000000\n1.0000000000 2.0000000000 3.0000000000\n#\n\n"
+              "1.0000000000 2.0000000000 3.0000000000\n1.0000000000 2.0000000000 3.0000000000\n"
+              "1.0000000000 2.0000000000 3.0000000000\n1.0000000000 2.0000000000 3.0000000000\n#\n\n"
+              "1.0000000000 2.0000000000 3.0000000000\n1.0000000000 2.0000000000 3.0000000000\n"
+              "1.0000000000 2.0000000000 3.0000000000\n1.0000000000 2.0000000000 3.0000000000\n#\n\n"
+              "1.0000000000 2.0000000000 3.0000000000\n1.0000000000 2.0000000000 3.0000000000\n"
+              "1.0000000000 2.0000000000 3.0000000000\n1.0000000000 2.0000000000 3.0000000000\n#\n\n"
+              "1.0000000000 2.0000000000 3.0000000000\n1.0000000000 2.0000000000 3.0000000000\n"
+              "1.0000000000 2.0000000000 3.0000000000\n1.0000000000 2.0000000000 3.0000000000\n#\n\n"
+
+    , ost.str());
+}
+
+
+TEST (Cuboid, translateCuboid) {
+    Matrix3x3 initMat = Matrix3x3();
+    vector3D initVec = vector3D(-1,1,2);
+    Cuboid Adam = Cuboid("../data/cuboidModel.txt", "../data/deck.txt", initMat, initVec);
+    vector3D result = Adam[0];
+    Adam.translationByVector(initVec);
+    Adam.calculateActualPosition();
+
+    result = result + initVec;
+
+    EXPECT_EQ(Adam.getPosition(), result);
+}
+
+TEST (Drone, constructorsAndIndexing) {
+
+    vector3D translation = vector3D();
+    Matrix3x3 orientation = Matrix3x3();
+    Drone drone1 = Drone("../data/drone0_deck.txt", "../data/drone0_rotor0.txt",
+                         "../data/drone0_rotor1.txt", "../data/drone0_rotor2.txt",
+                         "../data/drone0_rotor3.txt", translation, orientation);
+
+    translation = vector3D(10,100,1000);
+    Drone drone2 = Drone("../data/drone0_deck.txt", "../data/drone0_rotor0.txt",
+                         "../data/drone0_rotor1.txt", "../data/drone0_rotor2.txt",
+                         "../data/drone0_rotor3.txt", translation, orientation);
+
+    drone1.translateDrone(translation);
+    drone1.calculatePosition();
+
+    EXPECT_EQ(drone1[3].getPosition(), drone2[3].getPosition());
+    EXPECT_EQ(drone1.getDeck().getPosition(), drone1.getDeck().getPosition());
+
+}
 
 TEST (Hex, constructorsAndIndexingAndReadModel) {
 

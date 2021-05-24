@@ -122,42 +122,6 @@ vector3D &Cuboid::operator[](int index) {
     }
 }
 
-
-void Cuboid::calculateSidesLength(){
-
-    //sides 0 - 3 one group , 4-7 second group 8-11 last group
-    vector3D side = vector3D();
-    side = this->vertices[0] - this->vertices[1];
-    this->sidesLength[0] = side.getLength();
-    side = this->vertices[2] - this->vertices[3];
-    this->sidesLength[1] = side.getLength();
-    side = this->vertices[4] - this->vertices[5];
-    this->sidesLength[2] = side.getLength();
-    side = this->vertices[6] - this->vertices[7];
-    this->sidesLength[3] = side.getLength();
-
-
-    side = this->vertices[0] - this->vertices[3];
-    this->sidesLength[4] = side.getLength();
-    side = this->vertices[1] - this->vertices[2];
-    this->sidesLength[5] = side.getLength();
-    side = this->vertices[4] - this->vertices[7];
-    this->sidesLength[6] = side.getLength();
-    side = this->vertices[5] - this->vertices[6];
-    this->sidesLength[7] = side.getLength();
-
-
-    side = this->vertices[0] - this->vertices[4];
-    this->sidesLength[8] = side.getLength();
-    side = this->vertices[1] - this->vertices[5];
-    this->sidesLength[9] = side.getLength();
-    side = this->vertices[2] - this->vertices[6];
-    this->sidesLength[10] = side.getLength();
-    side = this->vertices[3] - this->vertices[7];
-    this->sidesLength[11] = side.getLength();
-}
-
-
 std::ostream &operator<<(std::ostream &ost, Cuboid &cub) {
     ost << std::setprecision(10) << std::fixed;
 
@@ -201,12 +165,6 @@ std::ostream &operator<<(std::ostream &ost, Cuboid &cub) {
 
     return ost;
 }
-
-double Cuboid::getSideLength(unsigned int index) {
-    if(index > SIDES_NUMBER_OF_CUBOID) throw std::invalid_argument("index out of range");
-    return this->sidesLength[index];
-}
-
 
 void Cuboid::calculateActualPosition() {
     readModelVerticesPosition();

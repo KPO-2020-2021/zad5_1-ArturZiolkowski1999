@@ -22,9 +22,13 @@ public:
     const HexagonalPrism & operator[](int index) const;
     HexagonalPrism & operator[](int index);
     Cuboid getDeck();
+    /*! calculate actual position od every drone component */
     void calculatePosition();
+    /*! multiply every drone element orientation by matrix */
     void rotateDrone(Matrix3x3 rotMatrix);
+    /*! add vector to every drone component position*/
     void translateDrone(vector3D vec);
+    /*! rotate rotors by given matrices once */
     void rotateRotors(const Matrix3x3 &rotLeft,const Matrix3x3 &rotRight, const int &numberOfRotation);
 };
 

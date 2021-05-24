@@ -24,8 +24,11 @@ public:
     Matrix3x3 getOrientation();
     void setOrientation(Matrix3x3 orient);
     void setPosition(vector3D pos);
+    /*! adds vector to position */
     GeometricalBloc &operator+=(vector3D vec);
+    /*! subtract vector from position */
     GeometricalBloc &operator-=(vector3D vec);
+    /*! multiply matrix by orienation*/
     GeometricalBloc &operator*=(Matrix3x3 rotMat);
 };
 

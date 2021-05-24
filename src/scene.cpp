@@ -1,9 +1,9 @@
 //
 // Created by artur on 4/11/21.
 //
+
 #include "scene.h"
 #include "../inc/scene.h"
-
 
 scene::scene() {
     GNU.ZmienTrybRys(PzG::TR_3D);
@@ -213,7 +213,9 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
          * = 60 -> its important because hexagonal prism after 60 degree rotation are look the same */
         for(int i = 0; i < (60/RESOLUTION); ++i){
             drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
-//            usleep(ANIMATION_SPEED);
+            if(!DO_YOU_HAVE_OLD_AND_VERY_SLOW_PC_IF_YES_SWITCH_TO_TRUE){
+                            usleep(ANIMATION_SPEED);
+            }
             drawScene();
         }
 
@@ -257,7 +259,9 @@ void scene::animateUpwardsMovement(char direction) {
         /* 10 * 6 = 60 -> its important */
         for(int i = 0; i < (60/RESOLUTION); ++i){
             drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
-//            usleep(ANIMATION_SPEED);
+            if(!DO_YOU_HAVE_OLD_AND_VERY_SLOW_PC_IF_YES_SWITCH_TO_TRUE){
+                usleep(ANIMATION_SPEED);
+            }
             drawScene();
         }
 
@@ -398,26 +402,46 @@ void scene::animateRotation(double targetAngle, char axis) {
     drawScene();
 }
 
-void scene::makeCircleWithDrone(vector3D centerOfCircle, double radius) {
+void scene::makeCircleWithDrone(double radius) {
 
 
+    int numberOfAngles = 20;
+    int angleOfCurve = 180 - (180 * numberOfAngles - 360 )/ numberOfAngles;
+
+    vector3D centerOfCircle = this->drone[this->chosenIndex].getDeck().getPosition();
+    /* switch z coord to max altitude*/
+    centerOfCircle[2] = ALTITUDE_OF_FLIGHT;
     /*translate upwards */
     animateUpwardsMovement('u');
     /*translate by radius */
-    vector3D targetPosition = centerOfCircle;
-    targetPosition = targetPosition / centerOfCircle.getLength();
-    /* calculate vector from centre of circlce to drone */
+    vector3D radiusVec = vector3D(radius, 0 ,0);
+    Matrix3x3 unitRotation = Matrix3x3(-angleOfCurve, 'z');
+    Matrix3x3 rot90 = Matrix3x3(90, 'z');
+
+    animateSimpleDroneTranslation(0,radiusVec);
+
+    vector3D targetPosition = vector3D(0,10,0);
+    targetPosition = this->drone[this->chosenIndex].getDeck().getOrientation() * targetPosition;
+    targetPosition = rot90 * targetPosition;
+
+
+    /* calculate vector from centre of circle to drone */
+
     vector3D distance = this->drone[this->chosenIndex].getDeck().getPosition();
     distance = distance - centerOfCircle;
+    for(int i = 0; i < numberOfAngles; i ++){
+            animateSimpleDroneTranslation(-angleOfCurve, targetPosition);
+            targetPosition = unitRotation * targetPosition;
+            /* idz o wektor do przodu */
 
-    while()
-    while(fabs(distance.getLength()) < radius){
-        /* idz o wektor do przodu */
     }
 
+    radiusVec = radiusVec * -1;
+    animateSimpleDroneTranslation(0,radiusVec);
 
     /*translate downwards */
     animateUpwardsMovement('d');
+    this->drone[this->chosenIndex].calculatePosition();
 
 
 }
@@ -445,7 +469,9 @@ void scene::animateSimpleDroneTranslation(double angleOfFlight, vector3D targetV
          * = 60 -> its important because hexagonal prism after 60 degree rotation are look the same */
         for(int i = 0; i < (60/RESOLUTION); ++i){
             drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
-//            usleep(ANIMATION_SPEED);
+            if(!DO_YOU_HAVE_OLD_AND_VERY_SLOW_PC_IF_YES_SWITCH_TO_TRUE){
+                usleep(ANIMATION_SPEED);
+            }
             drawScene();
         }
 
@@ -453,7 +479,7 @@ void scene::animateSimpleDroneTranslation(double angleOfFlight, vector3D targetV
     animateVector = animateVector * -1;
     drone[chosenIndex].translateDrone(animateVector);
     /* translate drone by this vec*/
-    drone[chosenIndex].translateDrone(targetPosFromDroneCenter);
+    drone[chosenIndex].translateDrone(targetVec);
     drone[chosenIndex].calculatePosition();
     drawScene();
 
