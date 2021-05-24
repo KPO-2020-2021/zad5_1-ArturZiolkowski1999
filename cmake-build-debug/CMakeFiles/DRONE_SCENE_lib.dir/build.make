@@ -76,9 +76,74 @@ include CMakeFiles/DRONE_SCENE_lib.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DRONE_SCENE_lib.dir/flags.make
 
+CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
+CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.o: ../src/Board.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Board.cpp
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Board.cpp > CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.i
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Board.cpp -o CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.s
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
+CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.o: ../src/Cuboid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Cuboid.cpp
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Cuboid.cpp > CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.i
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Cuboid.cpp -o CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.s
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
+CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.o: ../src/Drone.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Drone.cpp
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Drone.cpp > CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.i
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Drone.cpp -o CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.s
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
+CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.o: ../src/GeometricalBloc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/GeometricalBloc.cpp
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/GeometricalBloc.cpp > CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.i
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/GeometricalBloc.cpp -o CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.s
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
+CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.o: ../src/HexagonalPrism.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/HexagonalPrism.cpp
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/HexagonalPrism.cpp > CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.i
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/HexagonalPrism.cpp -o CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.s
+
 CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
 CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.o: ../src/Matrix3x3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp
 
 CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.i: cmake_force
@@ -91,7 +156,7 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.s: cmake_force
 
 CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
 CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.o: ../src/Matrix4x4.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp
 
 CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.i: cmake_force
@@ -102,9 +167,22 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp -o CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.s
 
+CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
+CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.o: ../src/Vector3D.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Vector3D.cpp
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Vector3D.cpp > CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.i
+
+CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Vector3D.cpp -o CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.s
+
 CMakeFiles/DRONE_SCENE_lib.dir/src/example.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
 CMakeFiles/DRONE_SCENE_lib.dir/src/example.cpp.o: ../src/example.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/example.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/example.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/example.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/example.cpp
 
 CMakeFiles/DRONE_SCENE_lib.dir/src/example.cpp.i: cmake_force
@@ -117,7 +195,7 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/example.cpp.s: cmake_force
 
 CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
 CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/main.cpp
 
 CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.i: cmake_force
@@ -130,7 +208,7 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.s: cmake_force
 
 CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.o: CMakeFiles/DRONE_SCENE_lib.dir/flags.make
 CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.o: ../src/scene.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/scene.cpp
 
 CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.i: cmake_force
@@ -143,8 +221,14 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.s: cmake_force
 
 # Object files for target DRONE_SCENE_lib
 DRONE_SCENE_lib_OBJECTS = \
+"CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.o" \
+"CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.o" \
+"CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.o" \
+"CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.o" \
+"CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.o" \
 "CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.o" \
 "CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.o" \
+"CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.o" \
 "CMakeFiles/DRONE_SCENE_lib.dir/src/example.cpp.o" \
 "CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.o" \
 "CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.o"
@@ -152,14 +236,20 @@ DRONE_SCENE_lib_OBJECTS = \
 # External object files for target DRONE_SCENE_lib
 DRONE_SCENE_lib_EXTERNAL_OBJECTS =
 
+libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.o
+libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.o
+libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.o
+libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.o
+libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.o
 libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.o
 libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.o
+libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.o
 libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/example.cpp.o
 libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.o
 libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.o
 libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/build.make
 libDRONE_SCENE_lib.a: CMakeFiles/DRONE_SCENE_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libDRONE_SCENE_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX static library libDRONE_SCENE_lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/DRONE_SCENE_lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DRONE_SCENE_lib.dir/link.txt --verbose=$(VERBOSE)
 

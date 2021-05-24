@@ -1,0 +1,82 @@
+\href{http://www.repostatus.org/\#active}{\texttt{ }} \href{https://travis-ci.org/bsamseth/cpp-project}{\texttt{ }} \href{https://ci.appveyor.com/project/bsamseth/cpp-project/branch/master}{\texttt{ }} \href{https://coveralls.io/github/bsamseth/cpp-project?branch=master}{\texttt{ }} \href{https://codecov.io/gh/bsamseth/cpp-project}{\texttt{ }} \href{https://www.codacy.com/app/bsamseth/cpp-project?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bsamseth/cpp-project&amp;utm_campaign=Badge_Grade}{\texttt{ }} \href{https://lgtm.com/projects/g/bsamseth/cpp-project/context:cpp}{\texttt{ }} \href{https://lgtm.com/projects/g/bsamseth/cpp-project/alerts/}{\texttt{ }} \href{https://github.com/bsamseth/cpp-project/blob/master/LICENSE}{\texttt{ }} \href{https://github.com/Aaronepower/tokei}{\texttt{ }} \href{http://isitmaintained.com/project/bsamseth/cpp-project}{\texttt{ }} \href{http://isitmaintained.com/project/bsamseth/cpp-project}{\texttt{ }} edeit \hypertarget{index_autotoc_md0}{}\doxysection{Boiler plate for C++ projects}\label{index_autotoc_md0}
+This is a boiler plate for C++ projects. What you get\+:
+
+
+\begin{DoxyItemize}
+\item Sources, headers and mains separated in distinct folders
+\item Use of modern \href{https://cmake.org/}{\texttt{ C\+Make}} for much easier compiling
+\item Setup for tests using \href{https://github.com/onqtam/doctest}{\texttt{ doctest}}
+\item Continuous testing with \href{https://travis-ci.org/}{\texttt{ Travis-\/\+CI}}, \href{https://www.appveyor.com}{\texttt{ Appveyor}} and \href{https://github.com/features/actions}{\texttt{ Git\+Hub Actions}}, with support for C++17.
+\item Code coverage reports, including automatic upload to \href{https://coveralls.io/}{\texttt{ Coveralls.\+io}} and/or \href{https://codecov.io}{\texttt{ Codecov.\+io}}
+\item Code documentation with \href{http://www.stack.nl/~dimitri/doxygen/}{\texttt{ Doxygen}}
+\end{DoxyItemize}
+
+\hypertarget{index_autotoc_md1}{}\doxysubsection{Structure}\label{index_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{.}
+\DoxyCodeLine{├── CMakeLists.txt}
+\DoxyCodeLine{├── app}
+\DoxyCodeLine{│   └── main.cpp}
+\DoxyCodeLine{├── include}
+\DoxyCodeLine{│   ├── example.h}
+\DoxyCodeLine{│   └── exampleConfig.h.in}
+\DoxyCodeLine{├── src}
+\DoxyCodeLine{│   └── example.cpp}
+\DoxyCodeLine{└── tests}
+\DoxyCodeLine{    ├── dummy.cpp}
+\DoxyCodeLine{    └── main.cpp}
+\end{DoxyCode}
+
+
+Sources go in \href{src/}{\texttt{ src/}}, header files in \href{inc/}{\texttt{ include/}}, main programs in \mbox{[}app/\mbox{]}(app), and tests go in \href{tst/}{\texttt{ tests/}} (compiled to {\ttfamily unit\+\_\+tests} by default).
+
+If you add a new executable, say {\ttfamily app/hello.\+cpp}, you only need to add the following two lines to \href{CMakeLists.txt}{\texttt{ C\+Make\+Lists.\+txt}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{add\_executable(main app/main.cpp)   \# Name of exec. and location of file.}
+\DoxyCodeLine{target\_link\_libraries(main PRIVATE \$\{LIBRARY\_NAME\})  \# Link the executable to lib built from src/*.cpp (if it uses it).}
+\end{DoxyCode}
+
+
+You can find the example source code that builds the {\ttfamily main} executable in \href{app/main.cpp}{\texttt{ app/main.\+cpp}} under the {\ttfamily Build} section in \href{CMakeLists.txt}{\texttt{ C\+Make\+Lists.\+txt}}. If the executable you made does not use the library in \mbox{[}src/\mbox{]}(src), then only the first line is needed.\hypertarget{index_autotoc_md2}{}\doxysubsection{Building}\label{index_autotoc_md2}
+Build by making a build directory (i.\+e. {\ttfamily build/}), run {\ttfamily cmake} in that dir, and then use {\ttfamily make} to build the desired target.
+
+Example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{> mkdir build \&\& cd build}
+\DoxyCodeLine{> cmake .. -\/DCMAKE\_BUILD\_TYPE=[Debug | Coverage | Release]}
+\DoxyCodeLine{> make}
+\DoxyCodeLine{> ./main}
+\DoxyCodeLine{> make test      \# Makes and runs the tests.}
+\DoxyCodeLine{> make coverage  \# Generate a coverage report.}
+\DoxyCodeLine{> make doc       \# Generate html documentation.}
+\end{DoxyCode}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{.\+gitignore}\label{index_autotoc_md3}
+The \href{.gitignore}{\texttt{ .gitignore}} file is a copy of the \href{https://github.com/github/gitignore/blob/master/C\%2B\%2B.gitignore}{\texttt{ Github C++.gitignore file}}, with the addition of ignoring the build directory ({\ttfamily build/}).\hypertarget{index_autotoc_md4}{}\doxysubsection{Services}\label{index_autotoc_md4}
+If the repository is activated with Travis-\/\+CI, then unit tests will be built and executed on each commit. The same is true if the repository is activated with Appveyor.
+
+If the repository is activated with Coveralls/\+Codecov, then deployment to Travis will also calculate code coverage and upload this to Coveralls.\+io and/or Codecov.\+io\hypertarget{index_autotoc_md5}{}\doxysubsection{Setup}\label{index_autotoc_md5}
+\hypertarget{index_autotoc_md6}{}\doxysubsubsection{Using the Git\+Hub template}\label{index_autotoc_md6}
+Click the {\ttfamily Use this template} button to make a new repository from this template.
+
+{\bfseries{NB}}\+: Git\+Hub templates do not carry over submodules, which means you need to add those back {\itshape before} you can build the project. Run the following after you have generated your new project\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{> git clone https://github.com/<your-\/username>/<your-\/repo-\/name>}
+\DoxyCodeLine{> git submodule add https://github.com/onqtam/doctest.git external/doctest}
+\DoxyCodeLine{> git commit -\/a -\/-\/amend -\/-\/no-\/edit}
+\DoxyCodeLine{> git push -\/-\/force}
+\end{DoxyCode}
+\hypertarget{index_autotoc_md7}{}\doxysubsubsection{From command line}\label{index_autotoc_md7}
+When starting a new project, you probably don\textquotesingle{}t want the history of this repository. To start fresh you can use the \href{setup.sh}{\texttt{ setup script}} as follows\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{> git clone -\/-\/recurse-\/submodules https://github.com/bsamseth/cpp-\/project  \# Or use ssh-\/link if you like.}
+\DoxyCodeLine{> cd cpp-\/project}
+\DoxyCodeLine{> bash setup.sh}
+\end{DoxyCode}
+
+
+The result is a fresh Git repository with one commit adding all files from the boiler plate. 

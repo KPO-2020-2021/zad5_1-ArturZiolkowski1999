@@ -532,12 +532,32 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc/Board.h">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
 		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc/Constants.h">
 			<Option target="DRONE_SCENE_run"/>
 			<Option target="DRONE_SCENE_lib"/>
 			<Option target="engine"/>
 		</Unit>
 		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc/Cuboid.h">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc/Drone.h">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc/GeometricalBlock.h">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc/HexagonalPrism.h">
 			<Option target="DRONE_SCENE_run"/>
 			<Option target="DRONE_SCENE_lib"/>
 			<Option target="engine"/>
@@ -558,6 +578,11 @@
 			<Option target="engine"/>
 		</Unit>
 		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc/Vector.h">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc/Vector3D.h">
 			<Option target="DRONE_SCENE_run"/>
 			<Option target="DRONE_SCENE_lib"/>
 			<Option target="engine"/>
@@ -590,12 +615,42 @@
 		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/googletest-master/googletest/src/gtest_main.cc">
 			<Option target="gtest_main"/>
 		</Unit>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Board.cpp">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Cuboid.cpp">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Drone.cpp">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/GeometricalBloc.cpp">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/HexagonalPrism.cpp">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
 		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp">
 			<Option target="DRONE_SCENE_run"/>
 			<Option target="DRONE_SCENE_lib"/>
 			<Option target="engine"/>
 		</Unit>
 		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp">
+			<Option target="DRONE_SCENE_run"/>
+			<Option target="DRONE_SCENE_lib"/>
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Vector3D.cpp">
 			<Option target="DRONE_SCENE_run"/>
 			<Option target="DRONE_SCENE_lib"/>
 			<Option target="engine"/>

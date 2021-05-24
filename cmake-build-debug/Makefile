@@ -305,6 +305,171 @@ GNUPlot_lib/fast:
 	$(MAKE) $(MAKESILENT) -f lib/GNUPlot/CMakeFiles/GNUPlot_lib.dir/build.make lib/GNUPlot/CMakeFiles/GNUPlot_lib.dir/build
 .PHONY : GNUPlot_lib/fast
 
+src/Board.o: src/Board.cpp.o
+
+.PHONY : src/Board.o
+
+# target to build an object file
+src/Board.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Board.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Board.cpp.o
+.PHONY : src/Board.cpp.o
+
+src/Board.i: src/Board.cpp.i
+
+.PHONY : src/Board.i
+
+# target to preprocess a source file
+src/Board.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Board.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Board.cpp.i
+.PHONY : src/Board.cpp.i
+
+src/Board.s: src/Board.cpp.s
+
+.PHONY : src/Board.s
+
+# target to generate assembly for a file
+src/Board.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Board.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Board.cpp.s
+.PHONY : src/Board.cpp.s
+
+src/Cuboid.o: src/Cuboid.cpp.o
+
+.PHONY : src/Cuboid.o
+
+# target to build an object file
+src/Cuboid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Cuboid.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Cuboid.cpp.o
+.PHONY : src/Cuboid.cpp.o
+
+src/Cuboid.i: src/Cuboid.cpp.i
+
+.PHONY : src/Cuboid.i
+
+# target to preprocess a source file
+src/Cuboid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Cuboid.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Cuboid.cpp.i
+.PHONY : src/Cuboid.cpp.i
+
+src/Cuboid.s: src/Cuboid.cpp.s
+
+.PHONY : src/Cuboid.s
+
+# target to generate assembly for a file
+src/Cuboid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Cuboid.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Cuboid.cpp.s
+.PHONY : src/Cuboid.cpp.s
+
+src/Drone.o: src/Drone.cpp.o
+
+.PHONY : src/Drone.o
+
+# target to build an object file
+src/Drone.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Drone.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Drone.cpp.o
+.PHONY : src/Drone.cpp.o
+
+src/Drone.i: src/Drone.cpp.i
+
+.PHONY : src/Drone.i
+
+# target to preprocess a source file
+src/Drone.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Drone.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Drone.cpp.i
+.PHONY : src/Drone.cpp.i
+
+src/Drone.s: src/Drone.cpp.s
+
+.PHONY : src/Drone.s
+
+# target to generate assembly for a file
+src/Drone.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Drone.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Drone.cpp.s
+.PHONY : src/Drone.cpp.s
+
+src/GeometricalBloc.o: src/GeometricalBloc.cpp.o
+
+.PHONY : src/GeometricalBloc.o
+
+# target to build an object file
+src/GeometricalBloc.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/GeometricalBloc.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/GeometricalBloc.cpp.o
+.PHONY : src/GeometricalBloc.cpp.o
+
+src/GeometricalBloc.i: src/GeometricalBloc.cpp.i
+
+.PHONY : src/GeometricalBloc.i
+
+# target to preprocess a source file
+src/GeometricalBloc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/GeometricalBloc.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/GeometricalBloc.cpp.i
+.PHONY : src/GeometricalBloc.cpp.i
+
+src/GeometricalBloc.s: src/GeometricalBloc.cpp.s
+
+.PHONY : src/GeometricalBloc.s
+
+# target to generate assembly for a file
+src/GeometricalBloc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/GeometricalBloc.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/GeometricalBloc.cpp.s
+.PHONY : src/GeometricalBloc.cpp.s
+
+src/HexagonalPrism.o: src/HexagonalPrism.cpp.o
+
+.PHONY : src/HexagonalPrism.o
+
+# target to build an object file
+src/HexagonalPrism.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/HexagonalPrism.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/HexagonalPrism.cpp.o
+.PHONY : src/HexagonalPrism.cpp.o
+
+src/HexagonalPrism.i: src/HexagonalPrism.cpp.i
+
+.PHONY : src/HexagonalPrism.i
+
+# target to preprocess a source file
+src/HexagonalPrism.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/HexagonalPrism.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/HexagonalPrism.cpp.i
+.PHONY : src/HexagonalPrism.cpp.i
+
+src/HexagonalPrism.s: src/HexagonalPrism.cpp.s
+
+.PHONY : src/HexagonalPrism.s
+
+# target to generate assembly for a file
+src/HexagonalPrism.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/HexagonalPrism.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/HexagonalPrism.cpp.s
+.PHONY : src/HexagonalPrism.cpp.s
+
 src/Matrix3x3.o: src/Matrix3x3.cpp.o
 
 .PHONY : src/Matrix3x3.o
@@ -370,6 +535,39 @@ src/Matrix4x4.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Matrix4x4.cpp.s
 .PHONY : src/Matrix4x4.cpp.s
+
+src/Vector3D.o: src/Vector3D.cpp.o
+
+.PHONY : src/Vector3D.o
+
+# target to build an object file
+src/Vector3D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Vector3D.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Vector3D.cpp.o
+.PHONY : src/Vector3D.cpp.o
+
+src/Vector3D.i: src/Vector3D.cpp.i
+
+.PHONY : src/Vector3D.i
+
+# target to preprocess a source file
+src/Vector3D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Vector3D.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Vector3D.cpp.i
+.PHONY : src/Vector3D.cpp.i
+
+src/Vector3D.s: src/Vector3D.cpp.s
+
+.PHONY : src/Vector3D.s
+
+# target to generate assembly for a file
+src/Vector3D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_run.dir/build.make CMakeFiles/DRONE_SCENE_run.dir/src/Vector3D.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DRONE_SCENE_lib.dir/build.make CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Vector3D.cpp.s
+.PHONY : src/Vector3D.cpp.s
 
 src/example.o: src/example.cpp.o
 
@@ -492,12 +690,30 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... src/Board.o"
+	@echo "... src/Board.i"
+	@echo "... src/Board.s"
+	@echo "... src/Cuboid.o"
+	@echo "... src/Cuboid.i"
+	@echo "... src/Cuboid.s"
+	@echo "... src/Drone.o"
+	@echo "... src/Drone.i"
+	@echo "... src/Drone.s"
+	@echo "... src/GeometricalBloc.o"
+	@echo "... src/GeometricalBloc.i"
+	@echo "... src/GeometricalBloc.s"
+	@echo "... src/HexagonalPrism.o"
+	@echo "... src/HexagonalPrism.i"
+	@echo "... src/HexagonalPrism.s"
 	@echo "... src/Matrix3x3.o"
 	@echo "... src/Matrix3x3.i"
 	@echo "... src/Matrix3x3.s"
 	@echo "... src/Matrix4x4.o"
 	@echo "... src/Matrix4x4.i"
 	@echo "... src/Matrix4x4.s"
+	@echo "... src/Vector3D.o"
+	@echo "... src/Vector3D.i"
+	@echo "... src/Vector3D.s"
 	@echo "... src/example.o"
 	@echo "... src/example.i"
 	@echo "... src/example.s"

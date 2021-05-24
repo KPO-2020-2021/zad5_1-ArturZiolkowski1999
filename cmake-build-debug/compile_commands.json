@@ -1,6 +1,31 @@
 [
 {
   "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_run.dir/src/Board.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Board.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Board.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_run.dir/src/Cuboid.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Cuboid.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Cuboid.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_run.dir/src/Drone.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Drone.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Drone.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_run.dir/src/GeometricalBloc.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/GeometricalBloc.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/GeometricalBloc.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_run.dir/src/HexagonalPrism.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/HexagonalPrism.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/HexagonalPrism.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
   "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_run.dir/src/Matrix3x3.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp",
   "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp"
 },
@@ -8,6 +33,11 @@
   "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
   "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_run.dir/src/Matrix4x4.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp",
   "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_run.dir/src/Vector3D.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Vector3D.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Vector3D.cpp"
 },
 {
   "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
@@ -26,6 +56,31 @@
 },
 {
   "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_lib.dir/src/Board.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Board.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Board.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Cuboid.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Cuboid.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Drone.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Drone.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_lib.dir/src/GeometricalBloc.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/GeometricalBloc.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/GeometricalBloc.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/HexagonalPrism.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/HexagonalPrism.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
   "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp",
   "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp"
 },
@@ -33,6 +88,11 @@
   "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
   "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp",
   "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Vector3D.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Vector3D.cpp"
 },
 {
   "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
@@ -51,6 +111,31 @@
 },
 {
   "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/engine.dir/src/Board.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Board.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Board.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/engine.dir/src/Cuboid.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Cuboid.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Cuboid.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/engine.dir/src/Drone.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Drone.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Drone.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/engine.dir/src/GeometricalBloc.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/GeometricalBloc.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/GeometricalBloc.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/engine.dir/src/HexagonalPrism.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/HexagonalPrism.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/HexagonalPrism.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
   "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/engine.dir/src/Matrix3x3.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp",
   "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix3x3.cpp"
 },
@@ -58,6 +143,11 @@
   "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
   "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/engine.dir/src/Matrix4x4.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp",
   "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Matrix4x4.cpp"
+},
+{
+  "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
+  "command": "/usr/bin/c++  -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug -g -std=gnu++17 -o CMakeFiles/engine.dir/src/Vector3D.cpp.o -c /home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Vector3D.cpp",
+  "file": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/src/Vector3D.cpp"
 },
 {
   "directory": "/home/artur/cpp_projekty/zad5_1-ArturZiolkowski1999/cmake-build-debug",
