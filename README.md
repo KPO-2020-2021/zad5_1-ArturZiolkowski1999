@@ -48,4 +48,8 @@ Example:
 > ./DRONE_SCENE_tst
 > make doc       # Generate html documentation.
 ```
+## Tips
+
+If you dont have old and slow Pc switch const bool " DO_YOU_HAVE_OLD_AND_VERY_SLOW_PC_IF_YES_SWITCH_TO_TRUE " to false, so you could see slower animation. This const variable is located in constants.h file.
+
 
